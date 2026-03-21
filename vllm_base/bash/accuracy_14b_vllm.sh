@@ -7,8 +7,9 @@ cd "$ROOT_DIR"
 : "${MODEL_PATH:?Please export MODEL_PATH=/path/to/Qwen2.5-14B-Instruct}"
 
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
-MODEL_NAME="${MODEL_NAME:-$(basename "$MODEL_PATH")}"
-RESULT_DIR="${RESULT_DIR:-$ROOT_DIR/results/vllm_base/$MODEL_NAME}"
+RESULT_ROOT="${RESULT_ROOT:-/inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results}"
+MODEL_TAG="${MODEL_TAG:-14b}"
+RESULT_DIR="${RESULT_DIR:-$RESULT_ROOT/vllm_base/$MODEL_TAG}"
 mkdir -p "$RESULT_DIR/logs"
 
 LIMIT_ARGS=()

@@ -1,7 +1,9 @@
+export CUDA_VISIBLE_DEVICES=0
+export MODEL_PATH=/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct
 python - <<'PY'
 from vllm import LLM, SamplingParams
 
-model_path = "$MODEL_PATH"
+model_path = "/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct"
 llm = LLM(
     model=model_path,
     trust_remote_code=True,
