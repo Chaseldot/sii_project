@@ -78,7 +78,7 @@ def main():
         max_new_tokens=args.max_new_tokens,
         peak_gpu_mem_gb=engine.peak_gpu_mem_gb(),
     )
-    print_benchmark_stats(stats, title="optimized-vllm")
+    print_benchmark_stats(stats, title="vllm_base")
     if args.output:
         save_json(args.output, stats)
         print(f"\n[INFO] 结果已保存至: {args.output}")
@@ -86,4 +86,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

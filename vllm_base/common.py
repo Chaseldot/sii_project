@@ -82,7 +82,7 @@ def compute_benchmark_stats(
     }
 
 
-def print_benchmark_stats(stats: dict, title: str = "optimized") -> None:
+def print_benchmark_stats(stats: dict, title: str = "vllm_base") -> None:
     labels = {
         "total_prompts": "测试 prompt 数",
         "total_output_tokens": "总输出 tokens",
@@ -122,4 +122,3 @@ def print_accuracy_result(result: dict, baseline_acc: float | None = None) -> No
         print(f"  精度下降     : {drop*100:.2f}% （上限 5%）")
         print(f"  精度约束状态 : {status}")
     print("=" * 60)
-

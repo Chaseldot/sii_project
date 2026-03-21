@@ -8,19 +8,15 @@ cd "$ROOT_DIR"
 
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 MODEL_NAME="${MODEL_NAME:-$(basename "$MODEL_PATH")}"
-RESULT_DIR="${RESULT_DIR:-$ROOT_DIR/results/optimized/$MODEL_NAME}"
+RESULT_DIR="${RESULT_DIR:-$ROOT_DIR/results/vllm_base/$MODEL_NAME}"
 mkdir -p "$RESULT_DIR/logs"
 
-python -m optimized.benchmark \
+python -m vllm_base.inference \
   --model_path "$MODEL_PATH" \
-  --prompt_file "${PROMPT_FILE:-baseline/prompts.jsonl}" \
-  --output "$RESULT_DIR/results_optimized.json" \
   --tensor_parallel_size "${TENSOR_PARALLEL_SIZE:-1}" \
   --dtype "${DTYPE:-auto}" \
   --gpu_memory_utilization "${GPU_MEMORY_UTILIZATION:-0.9}" \
   --max_new_tokens "${MAX_NEW_TOKENS:-256}" \
   --temperature "${TEMPERATURE:-0.0}" \
-  --batch_size "${BATCH_SIZE:-1}" \
-  ${ENABLE_PREFIX_CACHING:+--enable_prefix_caching} \
-  | tee "$RESULT_DIR/logs/benchmark.log"
-
+  --output "$RESULT_DIR/inference_result.json" \
+  | tee "$RESULT_DIR/logs/inference.log"

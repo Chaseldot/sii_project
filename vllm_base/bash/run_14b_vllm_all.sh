@@ -12,8 +12,8 @@ echo "[INFO] CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}"
 echo "[INFO] BATCH_SIZE=${BATCH_SIZE:-1}"
 echo "[INFO] EVAL_LIMIT=${EVAL_LIMIT:-0}"
 
-bash optimized/bash/smoke_14b_vllm.sh
-bash optimized/bash/benchmark_14b_vllm.sh
-bash optimized/bash/accuracy_14b_vllm.sh
+bash vllm_base/bash/smoke_14b_vllm.sh
+bash vllm_base/bash/benchmark_14b_vllm.sh
+bash vllm_base/bash/accuracy_14b_vllm.sh
 
 echo "[INFO] vLLM 14B 全流程完成"

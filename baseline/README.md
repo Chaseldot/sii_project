@@ -45,15 +45,15 @@ python baseline_inference.py --model_path $MODEL_PATH
 ### 4. 运行吞吐 & 延迟基准测试
 
 ```bash
-python benchmark.py --model_path $MODEL_PATH --output results_baseline.json
+python benchmark.py --model_path $MODEL_PATH --output ../results/baseline/<model_name>/results_baseline.json
 ```
 
-`results_baseline.json` 即为你的**性能基线**，优化后需与此文件对比。
+`results/baseline/<model_name>/results_baseline.json` 即为你的**性能基线**，优化后需与此文件对比。
 
 ### 5. 运行精度评测
 
 ```bash
-python evaluate_accuracy.py --model_path $MODEL_PATH --eval_file ceval_subset.jsonl --output accuracy_baseline.json
+python evaluate_accuracy.py --model_path $MODEL_PATH --eval_file ceval_subset.jsonl --output ../results/baseline/<model_name>/accuracy_baseline.json
 ```
 
 返回得到模型在测评集上的精度，作为后续优化的参考。后续优化不得导致精度过度丢失。(ceval_subset.jsonl中样例较多，考虑到运行时间可以截选其中200~500条进行测试,保证对比前后使用的数据一致即可)
@@ -82,8 +82,8 @@ python evaluate_accuracy.py --model_path $MODEL_PATH --eval_file ceval_subset.js
 1. 优化后的代码（可基于本脚本修改，或新建目录）。
 2. README.md（简介项目并说明运行方法）
 3. 关于流式输出可以单开一个简单的脚本进行简单的功能展示即可。
-4. `results_baseline.json` 与 `results_optimized.json` (基准和优化后的吞吐、延迟等)。
-5. `accuracy_baseline.json` 与 `accuracy_optimized.json`  (基准和优化后的精度)。
+4. `results/baseline/<model_name>/results_baseline.json` 与 `results/vllm_base/<model_name>/results_optimized.json` (基准和优化后的吞吐、延迟等)。
+5. `results/baseline/<model_name>/accuracy_baseline.json` 与 `results/vllm_base/<model_name>/accuracy_optimized.json`  (基准和优化后的精度)。
 6. 实验报告（技术路线/原理 + 实验对比 + 分析）。
 
 ---
@@ -97,4 +97,3 @@ python evaluate_accuracy.py --model_path $MODEL_PATH --eval_file ceval_subset.js
 - [AutoAWQ](https://github.com/casper-hansen/AutoAWQ)
 - [Flash Attention](https://github.com/Dao-AILab/flash-attention)
 - [LMCache KV Cache 引擎](https://github.com/LMCache/LMCache)
-
