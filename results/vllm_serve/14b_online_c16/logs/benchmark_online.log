@@ -1,0 +1,118 @@
+[INFO] 已加载 99 条 prompt（来自 baseline/prompts.jsonl）
+[INFO] 开始在线 benchmark | concurrency=16
+  [  1/99] ttft=    74.4 ms  latency=  2946.1 ms  output= 256 tokens
+  [  2/99] ttft=    69.3 ms  latency=  2950.1 ms  output= 256 tokens
+  [  3/99] ttft=    75.2 ms  latency=  2955.9 ms  output= 256 tokens
+  [  4/99] ttft=    71.1 ms  latency=  2952.1 ms  output= 256 tokens
+  [  5/99] ttft=    76.1 ms  latency=  2956.7 ms  output= 256 tokens
+  [  6/99] ttft=    74.5 ms  latency=  2955.4 ms  output= 257 tokens
+  [  7/99] ttft=    86.8 ms  latency=  2957.6 ms  output= 256 tokens
+  [  8/99] ttft=    70.5 ms  latency=  2951.6 ms  output= 256 tokens
+  [  9/99] ttft=    70.8 ms  latency=  2951.9 ms  output= 256 tokens
+  [ 10/99] ttft=    72.5 ms  latency=  2954.2 ms  output= 256 tokens
+  [ 11/99] ttft=    72.7 ms  latency=  2953.8 ms  output= 256 tokens
+  [ 12/99] ttft=    71.9 ms  latency=  2952.9 ms  output= 256 tokens
+  [ 13/99] ttft=    71.7 ms  latency=  2952.7 ms  output= 256 tokens
+  [ 14/99] ttft=    84.3 ms  latency=  2954.8 ms  output= 256 tokens
+  [ 15/99] ttft=    69.7 ms  latency=  2951.0 ms  output= 256 tokens
+  [ 16/99] ttft=    70.9 ms  latency=  2951.9 ms  output= 256 tokens
+  [ 17/99] ttft=    22.8 ms  latency=  2906.7 ms  output= 256 tokens
+  [ 18/99] ttft=    49.3 ms  latency=  2918.8 ms  output= 256 tokens
+  [ 19/99] ttft=    48.3 ms  latency=  2930.9 ms  output= 257 tokens
+  [ 20/99] ttft=    49.0 ms  latency=  2931.9 ms  output= 256 tokens
+  [ 21/99] ttft=    47.1 ms  latency=  2929.9 ms  output= 256 tokens
+  [ 22/99] ttft=    46.6 ms  latency=  2929.4 ms  output= 256 tokens
+  [ 23/99] ttft=    48.8 ms  latency=  2931.6 ms  output= 256 tokens
+  [ 24/99] ttft=    57.0 ms  latency=  2928.9 ms  output= 256 tokens
+  [ 25/99] ttft=    47.7 ms  latency=  2930.5 ms  output= 258 tokens
+  [ 26/99] ttft=    48.6 ms  latency=  2931.5 ms  output= 256 tokens
+  [ 27/99] ttft=    48.3 ms  latency=  2931.1 ms  output= 256 tokens
+  [ 28/99] ttft=    47.6 ms  latency=  2930.5 ms  output= 256 tokens
+  [ 29/99] ttft=    58.2 ms  latency=  2930.1 ms  output= 256 tokens
+  [ 30/99] ttft=    47.1 ms  latency=  2930.0 ms  output= 256 tokens
+  [ 31/99] ttft=    45.8 ms  latency=  2928.6 ms  output= 256 tokens
+  [ 32/99] ttft=    57.0 ms  latency=  2929.4 ms  output= 256 tokens
+  [ 33/99] ttft=    34.0 ms  latency=  2915.8 ms  output= 256 tokens
+  [ 34/99] ttft=    32.4 ms  latency=  2916.0 ms  output= 256 tokens
+  [ 35/99] ttft=    41.6 ms  latency=  2923.4 ms  output= 256 tokens
+  [ 36/99] ttft=    44.3 ms  latency=  2926.1 ms  output= 256 tokens
+  [ 37/99] ttft=    43.7 ms  latency=  2925.7 ms  output= 256 tokens
+  [ 38/99] ttft=    45.1 ms  latency=  2927.2 ms  output= 256 tokens
+  [ 39/99] ttft=    44.0 ms  latency=  2926.1 ms  output= 256 tokens
+  [ 40/99] ttft=    43.7 ms  latency=  2925.7 ms  output= 256 tokens
+  [ 41/99] ttft=    42.9 ms  latency=  2925.3 ms  output= 256 tokens
+  [ 42/99] ttft=    45.7 ms  latency=  2927.3 ms  output= 256 tokens
+  [ 43/99] ttft=    44.9 ms  latency=  2926.9 ms  output= 256 tokens
+  [ 44/99] ttft=    43.4 ms  latency=  2925.4 ms  output= 256 tokens
+  [ 45/99] ttft=    42.8 ms  latency=  2924.3 ms  output= 256 tokens
+  [ 46/99] ttft=    42.7 ms  latency=  2924.6 ms  output= 256 tokens
+  [ 47/99] ttft=    56.2 ms  latency=  2927.3 ms  output= 256 tokens
+  [ 48/99] ttft=    44.6 ms  latency=  2926.8 ms  output= 256 tokens
+  [ 49/99] ttft=    44.0 ms  latency=  2753.4 ms  output= 240 tokens
+  [ 50/99] ttft=    33.6 ms  latency=  2916.7 ms  output= 255 tokens
+  [ 51/99] ttft=    32.6 ms  latency=  2916.7 ms  output= 256 tokens
+  [ 52/99] ttft=    31.2 ms  latency=  2915.9 ms  output= 258 tokens
+  [ 53/99] ttft=    45.2 ms  latency=  2928.1 ms  output= 256 tokens
+  [ 54/99] ttft=    55.7 ms  latency=  2927.5 ms  output= 256 tokens
+  [ 55/99] ttft=    65.4 ms  latency=  2926.1 ms  output= 256 tokens
+  [ 56/99] ttft=    56.1 ms  latency=  2927.8 ms  output= 256 tokens
+  [ 57/99] ttft=    45.6 ms  latency=  2928.4 ms  output= 256 tokens
+  [ 58/99] ttft=    44.1 ms  latency=  2927.1 ms  output= 256 tokens
+  [ 59/99] ttft=    44.0 ms  latency=  2926.9 ms  output= 256 tokens
+  [ 60/99] ttft=    45.4 ms  latency=  2928.4 ms  output= 256 tokens
+  [ 61/99] ttft=    44.1 ms  latency=  2926.8 ms  output= 256 tokens
+  [ 62/99] ttft=    54.1 ms  latency=  2925.9 ms  output= 256 tokens
+  [ 63/99] ttft=    44.7 ms  latency=  2927.6 ms  output= 256 tokens
+  [ 64/99] ttft=    43.1 ms  latency=  2926.1 ms  output= 256 tokens
+  [ 65/99] ttft=    33.4 ms  latency=  2918.5 ms  output= 256 tokens
+  [ 66/99] ttft=    57.1 ms  latency=  2917.6 ms  output= 256 tokens
+  [ 67/99] ttft=    34.5 ms  latency=  2917.4 ms  output= 256 tokens
+  [ 68/99] ttft=    32.9 ms  latency=  2918.1 ms  output= 256 tokens
+  [ 69/99] ttft=    43.3 ms  latency=  2926.1 ms  output= 256 tokens
+  [ 70/99] ttft=    43.2 ms  latency=  2926.2 ms  output= 256 tokens
+  [ 71/99] ttft=    45.6 ms  latency=  2928.8 ms  output= 256 tokens
+  [ 72/99] ttft=    55.9 ms  latency=  2928.0 ms  output= 256 tokens
+  [ 73/99] ttft=    45.0 ms  latency=  2928.6 ms  output= 256 tokens
+  [ 74/99] ttft=    44.9 ms  latency=  2928.0 ms  output= 255 tokens
+  [ 75/99] ttft=    55.3 ms  latency=  2927.4 ms  output= 256 tokens
+  [ 76/99] ttft=    43.5 ms  latency=  2927.2 ms  output= 256 tokens
+  [ 77/99] ttft=    44.2 ms  latency=  2927.4 ms  output= 256 tokens
+  [ 78/99] ttft=    45.2 ms  latency=  2928.4 ms  output= 255 tokens
+  [ 79/99] ttft=    46.0 ms  latency=  2929.1 ms  output= 256 tokens
+  [ 80/99] ttft=    45.5 ms  latency=  2928.7 ms  output= 256 tokens
+  [ 81/99] ttft=    43.5 ms  latency=  2916.6 ms  output= 255 tokens
+  [ 82/99] ttft=    33.1 ms  latency=  2917.5 ms  output= 256 tokens
+  [ 83/99] ttft=    45.5 ms  latency=  2917.8 ms  output= 256 tokens
+  [ 84/99] ttft=    36.3 ms  latency=  2917.4 ms  output= 256 tokens
+  [ 85/99] ttft=    31.7 ms  latency=  2917.3 ms  output= 256 tokens
+  [ 86/99] ttft=    56.5 ms  latency=  2928.1 ms  output= 256 tokens
+  [ 87/99] ttft=    43.6 ms  latency=  2926.9 ms  output= 256 tokens
+  [ 88/99] ttft=    42.9 ms  latency=  2926.3 ms  output= 256 tokens
+  [ 89/99] ttft=    43.9 ms  latency=  2927.2 ms  output= 256 tokens
+  [ 90/99] ttft=    43.9 ms  latency=  2927.5 ms  output= 256 tokens
+  [ 91/99] ttft=    45.5 ms  latency=  2928.8 ms  output= 256 tokens
+  [ 92/99] ttft=    44.7 ms  latency=  2928.0 ms  output= 255 tokens
+  [ 93/99] ttft=    44.1 ms  latency=  2927.8 ms  output= 256 tokens
+  [ 94/99] ttft=    44.7 ms  latency=  2928.4 ms  output= 256 tokens
+  [ 95/99] ttft=    45.8 ms  latency=  2929.2 ms  output= 256 tokens
+  [ 96/99] ttft=    46.1 ms  latency=  2929.4 ms  output= 256 tokens
+  [ 97/99] ttft=    33.1 ms  latency=  2920.2 ms  output= 256 tokens
+  [ 98/99] ttft=    33.4 ms  latency=  2917.5 ms  output= 256 tokens
+  [ 99/99] ttft=    33.6 ms  latency=  2916.7 ms  output= 256 tokens
+
+====================================================================
+ Online Benchmark 结果汇总（vllm_serve）
+====================================================================
+  total_prompts           : 99
+  total_output_tokens     : 25329
+  wall_time_sec           : 20.47
+  overall_throughput_tps  : 1237.39
+  avg_latency_ms          : 2928.04
+  p50_latency_ms          : 2927.53
+  p95_latency_ms          : 2954.21
+  p99_latency_ms          : 2956.76
+  avg_ttft_ms             : 49.29
+  p95_ttft_ms             : 74.41
+====================================================================
+
+[INFO] 结果已保存至: /inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results/vllm_serve/14b_online_c16/benchmark_online.json

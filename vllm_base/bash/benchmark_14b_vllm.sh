@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 export MODEL_PATH=/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct
 export CUDA_VISIBLE_DEVICES=0
-export MODEL_TAG=14b_bs4
-export BATCH_SIZE=4
+export MODEL_TAG=14b_bs_default
+export BATCH_SIZE=99
 
 set -euo pipefail
 
@@ -26,6 +26,6 @@ python -m vllm_base.benchmark \
   --gpu_memory_utilization "${GPU_MEMORY_UTILIZATION:-0.9}" \
   --max_new_tokens "${MAX_NEW_TOKENS:-256}" \
   --temperature "${TEMPERATURE:-0.0}" \
-  --batch_size "${BATCH_SIZE:-1}" \
+  # --batch_size "${BATCH_SIZE:-1}" \
   ${ENABLE_PREFIX_CACHING:+--enable_prefix_caching} \
   | tee "$RESULT_DIR/logs/benchmark.log"
