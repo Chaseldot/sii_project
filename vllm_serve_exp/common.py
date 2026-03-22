@@ -83,6 +83,14 @@ def compute_online_benchmark_stats(results: list[dict], wall_time_sec: float) ->
     }
 
 
+def combine_result_with_mem_metrics(base: dict, mem_metrics: dict | None) -> dict:
+    if not mem_metrics:
+        return dict(base)
+    merged = dict(base)
+    merged.update(mem_metrics)
+    return merged
+
+
 def print_benchmark_stats(stats: dict, title: str = "vllm_serve") -> None:
     print("\n" + "=" * 68)
     print(f" Online Benchmark 结果汇总（{title}）")
@@ -120,4 +128,3 @@ def print_accuracy_result(result: dict, baseline_acc: float | None = None) -> No
         print(f"  精度下降     : {drop*100:.2f}% （上限 5%）")
         print(f"  精度约束状态 : {status}")
     print("=" * 60)
-

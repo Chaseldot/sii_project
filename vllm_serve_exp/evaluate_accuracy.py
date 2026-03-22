@@ -6,6 +6,7 @@ import time
 import urllib.request
 
 from .common import (
+    combine_result_with_mem_metrics,
     DEFAULT_EVAL_FILE,
     build_ceval_prompt,
     extract_answer,
@@ -13,6 +14,7 @@ from .common import (
     print_accuracy_result,
     save_json,
 )
+from .monitor import OnlineExperimentMonitor
 
 
 def parse_args():
@@ -25,6 +27,7 @@ def parse_args():
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--max_tokens", type=int, default=16)
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--sample_interval_sec", type=float, default=0.5)
     return parser.parse_args()
 
 
@@ -61,6 +64,11 @@ def main():
 
     correct = 0
     wrong_cases = []
+    monitor = OnlineExperimentMonitor(
+        base_url=args.base_url,
+        sample_interval_sec=args.sample_interval_sec,
+    )
+    monitor.start()
     t_start = time.perf_counter()
     print(f"\n[Accuracy] 开始在线精度评测，共 {len(eval_data)} 道题...")
     print("-" * 60)
@@ -90,6 +98,7 @@ def main():
             )
 
     t_end = time.perf_counter()
+    mem_metrics = monitor.stop()
     accuracy = correct / len(eval_data)
     result = {
         "total": len(eval_data),
@@ -100,14 +109,15 @@ def main():
         "eval_time_sec": round(t_end - t_start, 2),
         "wrong_cases": wrong_cases[:10],
     }
-    print_accuracy_result(result, args.baseline_acc)
+    merged_result = combine_result_with_mem_metrics(result, mem_metrics)
+    print_accuracy_result(merged_result, args.baseline_acc)
     if args.output:
-        out = {k: v for k, v in result.items() if k != "wrong_cases"}
-        out["wrong_cases_count"] = result["wrong"]
+        out = {k: v for k, v in merged_result.items() if k != "wrong_cases"}
+        out["wrong_cases_count"] = merged_result["wrong"]
         save_json(args.output, out)
+        save_json(str(args.output).replace(".json", "_mem.json"), mem_metrics)
         print(f"\n[INFO] 结果已保存至: {args.output}")
 
 
 if __name__ == "__main__":
     main()
-

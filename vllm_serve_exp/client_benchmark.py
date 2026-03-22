@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from transformers import AutoTokenizer
 
 from .common import (
+    combine_result_with_mem_metrics,
     DEFAULT_PROMPT_FILE,
     compute_online_benchmark_stats,
     load_jsonl,
@@ -16,6 +17,7 @@ from .common import (
     print_benchmark_stats,
     save_json,
 )
+from .monitor import OnlineExperimentMonitor
 
 
 def parse_args():
@@ -28,6 +30,7 @@ def parse_args():
     parser.add_argument("--max_tokens", type=int, default=256)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--concurrency", type=int, default=1)
+    parser.add_argument("--sample_interval_sec", type=float, default=0.5)
     return parser.parse_args()
 
 
@@ -86,6 +89,11 @@ def main():
     print(f"[INFO] 开始在线 benchmark | concurrency={args.concurrency}")
 
     results = []
+    monitor = OnlineExperimentMonitor(
+        base_url=args.base_url,
+        sample_interval_sec=args.sample_interval_sec,
+    )
+    monitor.start()
     t_wall_start = time.perf_counter()
     with ThreadPoolExecutor(max_workers=args.concurrency) as executor:
         futures = [
@@ -110,15 +118,17 @@ def main():
                 f"output={res['output_tokens']:4d} tokens"
             )
     t_wall_end = time.perf_counter()
+    mem_metrics = monitor.stop()
 
     stats = compute_online_benchmark_stats(results, wall_time_sec=t_wall_end - t_wall_start)
+    stats = combine_result_with_mem_metrics(stats, mem_metrics)
     print_benchmark_stats(stats)
     if args.output:
         save_json(args.output, stats)
         save_json(str(args.output).replace(".json", "_details.json"), {"requests": results})
+        save_json(str(args.output).replace(".json", "_mem.json"), mem_metrics)
         print(f"\n[INFO] 结果已保存至: {args.output}")
 
 
 if __name__ == "__main__":
     main()
-

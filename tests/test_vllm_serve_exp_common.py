@@ -3,6 +3,7 @@ import unittest
 
 from vllm_serve_exp.common import (
     build_ceval_prompt,
+    combine_result_with_mem_metrics,
     compute_online_benchmark_stats,
     extract_answer,
     parse_stream_event,
@@ -50,6 +51,19 @@ class VLLMServeExpCommonTest(unittest.TestCase):
         self.assertEqual(stats["p95_latency_ms"], 1950.0)
         self.assertEqual(stats["avg_ttft_ms"], 250.0)
         self.assertEqual(stats["p95_ttft_ms"], 295.0)
+
+    def test_combine_result_with_mem_metrics_merges_fields(self):
+        base = {"overall_throughput_tps": 123.4}
+        mem = {
+            "peak_gpu_mem_gb": 33.2,
+            "avg_gpu_mem_gb": 30.1,
+            "max_kv_cache_usage_perc": 0.76,
+        }
+        merged = combine_result_with_mem_metrics(base, mem)
+        self.assertEqual(merged["overall_throughput_tps"], 123.4)
+        self.assertEqual(merged["peak_gpu_mem_gb"], 33.2)
+        self.assertEqual(merged["avg_gpu_mem_gb"], 30.1)
+        self.assertEqual(merged["max_kv_cache_usage_perc"], 0.76)
 
 
 if __name__ == "__main__":
