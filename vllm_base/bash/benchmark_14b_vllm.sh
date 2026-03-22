@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+export MODEL_PATH=/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct
+export CUDA_VISIBLE_DEVICES=0
+export MODEL_TAG=14b_bs4
+export BATCH_SIZE=4
+
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"

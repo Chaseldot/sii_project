@@ -1,0 +1,14 @@
+{
+  "total_prompts": 99,
+  "total_output_tokens": 25139,
+  "wall_time_sec": 141.52,
+  "max_new_tokens_cfg": 256,
+  "overall_throughput_tps": 177.64,
+  "avg_latency_ms": 2825.99,
+  "p50_latency_ms": 2825.34,
+  "p95_latency_ms": 2826.83,
+  "p99_latency_ms": 2844.56,
+  "avg_ttft_ms": 2825.99,
+  "p95_ttft_ms": 2826.83,
+  "peak_gpu_mem_gb": 0.0
+}
