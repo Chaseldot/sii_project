@@ -13,6 +13,7 @@ from .common import (
     save_json,
 )
 from .engine import EngineConfig, VLLM122BEngine
+from .monitor import OfflineGpuMonitor
 
 
 def parse_args():
@@ -34,6 +35,7 @@ def parse_args():
     parser.add_argument("--load_format", type=str, default="auto")
     parser.add_argument("--quantization", type=str, default="")
     parser.add_argument("--enforce_eager", action="store_true")
+    parser.add_argument("--monitor_sample_interval_sec", type=float, default=0.5)
     return parser.parse_args()
 
 
@@ -61,6 +63,8 @@ def main():
         )
     )
     engine.reset_peak_memory()
+    monitor = OfflineGpuMonitor(sample_interval_sec=args.monitor_sample_interval_sec)
+    monitor.start()
 
     results = []
     print(f"\n[Benchmark] 共 {len(prompts)} 条 prompt，开始离线推理...")
@@ -91,6 +95,7 @@ def main():
         max_new_tokens=args.max_new_tokens,
         peak_gpu_mem_gb=engine.peak_gpu_mem_gb(),
     )
+    stats.update(monitor.stop())
     print_benchmark_stats(stats, title="vllm_122b")
     if args.output:
         save_json(args.output, stats)

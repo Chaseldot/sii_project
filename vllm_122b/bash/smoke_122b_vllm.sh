@@ -8,6 +8,7 @@
 # - MAX_NUM_BATCHED_TOKENS: 单次调度可容纳的总 token 上限
 # - ENABLE_PREFIX_CACHING: 是否开启 Prefix Cache / KV 复用
 # - MAX_MODEL_LEN: 最大上下文长度
+# - SAMPLE_INTERVAL_SEC: 显存采样间隔
 MODEL_PATH="${MODEL_PATH:-/inspire/ssd/project/mianxiangdayuyanmoxing/public/Qwen3.5-122B}"
 CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3}"
 MODEL_TAG="${MODEL_TAG:-122b_tp4_smoke}"
@@ -24,6 +25,7 @@ MAX_NUM_SEQS="${MAX_NUM_SEQS:-12}"
 MAX_NUM_BATCHED_TOKENS="${MAX_NUM_BATCHED_TOKENS:-8192}"
 ENABLE_PREFIX_CACHING="${ENABLE_PREFIX_CACHING:-1}"
 ENFORCE_EAGER="${ENFORCE_EAGER:-0}"
+SAMPLE_INTERVAL_SEC="${SAMPLE_INTERVAL_SEC:-0.5}"
 RESULT_ROOT="${RESULT_ROOT:-}"
 # ===== End User Config =====
 set -euo pipefail
@@ -64,6 +66,7 @@ python -m vllm_122b.inference \
   --max_model_len "$MAX_MODEL_LEN" \
   --max_num_seqs "$MAX_NUM_SEQS" \
   --max_num_batched_tokens "$MAX_NUM_BATCHED_TOKENS" \
+  --monitor_sample_interval_sec "$SAMPLE_INTERVAL_SEC" \
   "${PREFIX_ARGS[@]}" \
   "${QUANT_ARGS[@]}" \
   "${EAGER_ARGS[@]}" \

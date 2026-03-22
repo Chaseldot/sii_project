@@ -13,6 +13,7 @@ from .common import (
     save_json,
 )
 from .engine import EngineConfig, VLLM122BEngine
+from .monitor import OfflineGpuMonitor
 
 
 def parse_args():
@@ -35,6 +36,7 @@ def parse_args():
     parser.add_argument("--load_format", type=str, default="auto")
     parser.add_argument("--quantization", type=str, default="")
     parser.add_argument("--enforce_eager", action="store_true")
+    parser.add_argument("--monitor_sample_interval_sec", type=float, default=0.5)
     return parser.parse_args()
 
 
@@ -60,6 +62,8 @@ def main():
             enforce_eager=args.enforce_eager,
         )
     )
+    monitor = OfflineGpuMonitor(sample_interval_sec=args.monitor_sample_interval_sec)
+    monitor.start()
 
     correct = 0
     wrong_cases = []
@@ -110,6 +114,7 @@ def main():
         "eval_time_sec": round(t_end - t_start, 2),
         "wrong_cases": wrong_cases[:10],
     }
+    result.update(monitor.stop())
     print_accuracy_result(result, args.baseline_acc)
 
     if args.output:

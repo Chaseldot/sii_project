@@ -4,6 +4,7 @@ import argparse
 
 from .common import DEFAULT_MAX_NEW_TOKENS, save_json
 from .engine import EngineConfig, VLLM122BEngine
+from .monitor import OfflineGpuMonitor
 
 
 def render_result(result: dict, peak_gpu_mem_gb: float) -> str:
@@ -48,6 +49,7 @@ def parse_args():
     parser.add_argument("--load_format", type=str, default="auto")
     parser.add_argument("--quantization", type=str, default="")
     parser.add_argument("--enforce_eager", action="store_true")
+    parser.add_argument("--monitor_sample_interval_sec", type=float, default=0.5)
     parser.add_argument("--output", type=str, default=None, help="可选 JSON 输出路径")
     return parser.parse_args()
 
@@ -70,18 +72,22 @@ def main():
         )
     )
     engine.reset_peak_memory()
+    monitor = OfflineGpuMonitor(sample_interval_sec=args.monitor_sample_interval_sec)
+    monitor.start()
     result = engine.generate_one(
         prompt=args.prompt,
         max_new_tokens=args.max_new_tokens,
         temperature=args.temperature,
     )
-    print(render_result(result, engine.peak_gpu_mem_gb()))
+    mem_metrics = monitor.stop()
+    peak_gpu_mem_gb = mem_metrics.get("peak_gpu_mem_gb", round(engine.peak_gpu_mem_gb(), 3))
+    print(render_result(result, peak_gpu_mem_gb))
     if args.output:
         save_json(
             args.output,
             {
                 **result,
-                "peak_gpu_mem_gb": round(engine.peak_gpu_mem_gb(), 3),
+                **mem_metrics,
             },
         )
         print(f"\n[INFO] 结果已保存至: {args.output}")

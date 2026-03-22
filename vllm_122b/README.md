@@ -18,3 +18,10 @@
 
 默认结果目录：
 - `results/vllm_122b/`
+
+离线结果默认会带 GPU 显存采样字段：
+- `avg_gpu_mem_gb`
+- `peak_gpu_mem_gb`
+- `avg_gpu_mem_utilization_perc`
+- `peak_gpu_mem_utilization_perc`
+- `gpu_total_mem_gb`
