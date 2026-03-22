@@ -37,7 +37,7 @@ def parse_args():
     parser.add_argument(
         "--mode",
         type=str,
-        default="preserve_short",
+        default="fixed_total",
         choices=["preserve_short", "fixed_total"],
         help="preserve_short: 保留全部 short 样本，再按比例采样 long；fixed_total: 固定总数并按比例采样。",
     )
@@ -50,7 +50,7 @@ def parse_args():
     parser.add_argument(
         "--total_samples",
         type=int,
-        default=0,
+        default=1024,
         help="mode=fixed_total 时生效；0 表示自动退回 preserve_short 逻辑。",
     )
     parser.add_argument(
@@ -65,6 +65,8 @@ def parse_args():
 def build_rows(
     short_items: list[dict],
     long_items: list[dict],
+    short_file_name: str,
+    long_file_name: str,
     mode: str,
     short_ratio: float,
     total_samples: int,
@@ -79,8 +81,8 @@ def build_rows(
     long_rows = []
 
     if mode == "fixed_total" and total_samples > 0:
-        short_target = min(len(short_items), int(round(total_samples * short_ratio)))
-        long_target = min(len(long_items), max(0, total_samples - short_target))
+        short_target = int(round(total_samples * short_ratio))
+        long_target = max(0, total_samples - short_target)
     else:
         short_target = len(short_items)
         long_target = min(
@@ -88,8 +90,15 @@ def build_rows(
             int(math.ceil(short_target * (1 - short_ratio) / short_ratio)),
         )
 
-    chosen_short = rng.sample(short_items, k=short_target)
-    chosen_long = rng.sample(long_items, k=long_target)
+    def choose(items: list[dict], target: int) -> list[dict]:
+        if target <= 0:
+            return []
+        if target <= len(items):
+            return rng.sample(items, k=target)
+        return [rng.choice(items) for _ in range(target)]
+
+    chosen_short = choose(short_items, short_target)
+    chosen_long = choose(long_items, long_target)
 
     for idx, item in enumerate(chosen_short, start=1):
         prompt = item["prompt"] if isinstance(item, dict) else str(item)
@@ -97,7 +106,7 @@ def build_rows(
             {
                 "id": f"short_{idx}",
                 "source_id": item.get("id", idx) if isinstance(item, dict) else idx,
-                "source_prompt_file": Path(DEFAULT_SHORT_FILE).name,
+                "source_prompt_file": short_file_name,
                 "length_bucket": "short",
                 "prompt_chars": len(prompt),
                 "prompt": prompt,
@@ -110,7 +119,7 @@ def build_rows(
             {
                 "id": f"long_{idx}",
                 "source_id": item.get("id", idx) if isinstance(item, dict) else idx,
-                "source_prompt_file": Path(DEFAULT_LONG_FILE).name,
+                "source_prompt_file": long_file_name,
                 "length_bucket": "long",
                 "prompt_chars": len(prompt),
                 "prompt": prompt,
@@ -138,6 +147,8 @@ def main():
     rows = build_rows(
         short_items=short_items,
         long_items=long_items,
+        short_file_name=short_file.name,
+        long_file_name=long_file.name,
         mode=args.mode,
         short_ratio=args.short_ratio,
         total_samples=args.total_samples,

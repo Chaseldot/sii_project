@@ -10,11 +10,13 @@ from transformers import AutoTokenizer
 
 from .common import (
     combine_result_with_mem_metrics,
+    compute_length_bucket_stats,
     DEFAULT_PROMPT_FILE,
     compute_online_benchmark_stats,
     load_jsonl,
     parse_stream_event,
     print_benchmark_stats,
+    print_length_bucket_stats,
     save_json,
 )
 from .monitor import OnlineExperimentMonitor
@@ -40,6 +42,11 @@ def stream_one(
     model: str,
     prompt_id,
     prompt: str,
+    prompt_chars: int,
+    length_bucket: str | None,
+    source_prompt_file: str | None,
+    source_id,
+    mixed_id,
     max_tokens: int,
     temperature: float,
     tokenizer,
@@ -82,7 +89,11 @@ def stream_one(
     return {
         "prompt_id": prompt_id,
         "prompt": prompt,
-        "prompt_chars": len(prompt),
+        "prompt_chars": prompt_chars,
+        "length_bucket": length_bucket,
+        "source_prompt_file": source_prompt_file,
+        "source_id": source_id,
+        "mixed_id": mixed_id,
         "output": output_text,
         "output_tokens": output_tokens,
         "ttft_ms": round((first_token_time - start) * 1000, 2),
@@ -99,9 +110,30 @@ def main():
     prompt_records = []
     for i, item in enumerate(prompts_data, start=1):
         if isinstance(item, dict):
-            prompt_records.append({"id": item.get("id", i), "prompt": item["prompt"]})
+            prompt = item["prompt"]
+            prompt_records.append(
+                {
+                    "id": item.get("id", i),
+                    "prompt": prompt,
+                    "prompt_chars": item.get("prompt_chars", len(prompt)),
+                    "length_bucket": item.get("length_bucket"),
+                    "source_prompt_file": item.get("source_prompt_file"),
+                    "source_id": item.get("source_id"),
+                    "mixed_id": item.get("mixed_id"),
+                }
+            )
         else:
-            prompt_records.append({"id": i, "prompt": item})
+            prompt_records.append(
+                {
+                    "id": i,
+                    "prompt": item,
+                    "prompt_chars": len(item),
+                    "length_bucket": None,
+                    "source_prompt_file": None,
+                    "source_id": None,
+                    "mixed_id": None,
+                }
+            )
     tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
 
     print(f"[INFO] 已加载 {len(prompt_records)} 条 prompt（来自 {args.prompt_file}）")
@@ -122,6 +154,11 @@ def main():
                 args.model,
                 item["id"],
                 item["prompt"],
+                item["prompt_chars"],
+                item["length_bucket"],
+                item["source_prompt_file"],
+                item["source_id"],
+                item["mixed_id"],
                 args.max_tokens,
                 args.temperature,
                 tokenizer,
@@ -142,11 +179,17 @@ def main():
 
     stats = compute_online_benchmark_stats(results, wall_time_sec=t_wall_end - t_wall_start)
     stats = combine_result_with_mem_metrics(stats, mem_metrics)
+    length_bucket_stats = compute_length_bucket_stats(results)
+    if length_bucket_stats:
+        stats["length_bucket_stats"] = length_bucket_stats
     print_benchmark_stats(stats)
+    print_length_bucket_stats(length_bucket_stats)
     if args.output:
         save_json(args.output, stats)
         save_json(str(args.output).replace(".json", "_details.json"), {"requests": results})
         save_json(str(args.output).replace(".json", "_mem.json"), mem_metrics)
+        if length_bucket_stats:
+            save_json(str(args.output).replace(".json", "_length_stats.json"), length_bucket_stats)
         print(f"\n[INFO] 结果已保存至: {args.output}")
 
 

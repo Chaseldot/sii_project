@@ -8,7 +8,7 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PROMPT_FILE = ROOT / "baseline" / "test_prompts.jsonl"
+DEFAULT_PROMPT_FILE = ROOT / "vllm_serve_exp_14b_baseline" / "data" / "mixed_prompts_30s70l.jsonl"
 DEFAULT_EVAL_FILE = ROOT / "baseline" / "ceval_subset.jsonl"
 
 BENCHMARK_PRINT_KEYS = [
@@ -106,6 +106,33 @@ def compute_online_benchmark_stats(results: list[dict], wall_time_sec: float) ->
     }
 
 
+def compute_length_bucket_stats(results: list[dict]) -> dict:
+    bucketed: dict[str, list[dict]] = {}
+    for item in results:
+        bucket = item.get("length_bucket")
+        if not bucket:
+            continue
+        bucketed.setdefault(bucket, []).append(item)
+
+    stats = {}
+    for bucket, rows in bucketed.items():
+        latencies = [row["latency_ms"] for row in rows]
+        ttfts = [row["ttft_ms"] for row in rows]
+        output_tokens = [row["output_tokens"] for row in rows]
+        prompt_chars = [row.get("prompt_chars", 0) for row in rows]
+        stats[bucket] = {
+            "count": len(rows),
+            "avg_prompt_chars": round(float(np.mean(prompt_chars)), 2),
+            "avg_output_tokens": round(float(np.mean(output_tokens)), 2),
+            "total_output_tokens": int(sum(output_tokens)),
+            "avg_latency_ms": round(float(np.mean(latencies)), 2),
+            "p95_latency_ms": round(float(np.percentile(latencies, 95)), 2),
+            "avg_ttft_ms": round(float(np.mean(ttfts)), 2),
+            "p95_ttft_ms": round(float(np.percentile(ttfts, 95)), 2),
+        }
+    return stats
+
+
 def combine_result_with_mem_metrics(base: dict, mem_metrics: dict | None) -> dict:
     if not mem_metrics:
         return dict(base)
@@ -120,6 +147,23 @@ def print_benchmark_stats(stats: dict, title: str = "vllm_serve") -> None:
     print("=" * 68)
     for key in BENCHMARK_PRINT_KEYS:
         print(f"  {key:<24s}: {stats.get(key, 'N/A')}")
+    print("=" * 68)
+
+
+def print_length_bucket_stats(length_bucket_stats: dict) -> None:
+    if not length_bucket_stats:
+        return
+    print("\n" + "=" * 68)
+    print(" Length Bucket Benchmark 结果汇总")
+    print("=" * 68)
+    for bucket, stats in length_bucket_stats.items():
+        print(f"  [{bucket}] count={stats['count']}")
+        print(f"    avg_prompt_chars : {stats['avg_prompt_chars']}")
+        print(f"    avg_output_tokens: {stats['avg_output_tokens']}")
+        print(f"    avg_ttft_ms      : {stats['avg_ttft_ms']}")
+        print(f"    p95_ttft_ms      : {stats['p95_ttft_ms']}")
+        print(f"    avg_latency_ms   : {stats['avg_latency_ms']}")
+        print(f"    p95_latency_ms   : {stats['p95_latency_ms']}")
     print("=" * 68)
 
 

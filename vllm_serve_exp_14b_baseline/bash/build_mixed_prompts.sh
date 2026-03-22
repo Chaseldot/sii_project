@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # ===== User Config =====
 # 直接改下面这些变量即可。
-# 推荐先用 preserve_short 模式，保留全部 short，再按比例采样 long。
+# 默认生成 1024 条混合数据；short 不够时会自动重复采样。
 SHORT_FILE="${SHORT_FILE:-baseline/prompts.jsonl}"
 LONG_FILE="${LONG_FILE:-baseline/test_prompts.jsonl}"
 OUTPUT="${OUTPUT:-vllm_serve_exp_14b_baseline/data/mixed_prompts_30s70l.jsonl}"
-MODE="${MODE:-preserve_short}"             # preserve_short / fixed_total
+MODE="${MODE:-fixed_total}"                # preserve_short / fixed_total
 SHORT_RATIO="${SHORT_RATIO:-0.3}"
-TOTAL_SAMPLES="${TOTAL_SAMPLES:-0}"        # 仅 fixed_total 模式使用
+TOTAL_SAMPLES="${TOTAL_SAMPLES:-1024}"     # 仅 fixed_total 模式使用
 SHUFFLE="${SHUFFLE:-1}"
 SEED="${SEED:-42}"
 # ===== End User Config =====
