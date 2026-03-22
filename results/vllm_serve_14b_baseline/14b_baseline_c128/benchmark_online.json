@@ -1,0 +1,51 @@
+{
+  "total_prompts": 512,
+  "total_output_tokens": 450445,
+  "wall_time_sec": 200.94,
+  "overall_throughput_tps": 2241.65,
+  "avg_latency_ms": 45077.79,
+  "p50_latency_ms": 50321.34,
+  "p95_latency_ms": 56775.44,
+  "p99_latency_ms": 57906.48,
+  "avg_ttft_ms": 21385.88,
+  "p95_ttft_ms": 28516.39,
+  "avg_gpu_mem_gb": 72.0352,
+  "peak_gpu_mem_gb": 72.0352,
+  "avg_gpu_mem_utilization_perc": 0.9044,
+  "peak_gpu_mem_utilization_perc": 0.9044,
+  "avg_kv_cache_usage_perc": 0.312,
+  "max_kv_cache_usage_perc": 0.4401,
+  "avg_num_requests_running": 60.181,
+  "max_num_requests_running": 64.0,
+  "avg_num_requests_waiting": 53.1656,
+  "max_num_requests_waiting": 93.0,
+  "gpu_total_mem_gb": 79.6475,
+  "initial_gpu_mem_gb": 72.0352,
+  "final_gpu_mem_gb": 72.0352,
+  "monitor_sample_interval_sec": 0.5,
+  "monitor_gpu_samples": 326,
+  "monitor_kv_samples": 326,
+  "monitor_cpu_cache_samples": 0,
+  "length_bucket_stats": {
+    "short": {
+      "count": 154,
+      "avg_prompt_chars": 36.38,
+      "avg_output_tokens": 632.23,
+      "total_output_tokens": 97363,
+      "avg_latency_ms": 37834.88,
+      "p95_latency_ms": 55125.05,
+      "avg_ttft_ms": 20864.43,
+      "p95_ttft_ms": 28500.65
+    },
+    "long": {
+      "count": 358,
+      "avg_prompt_chars": 1601.37,
+      "avg_output_tokens": 986.26,
+      "total_output_tokens": 353082,
+      "avg_latency_ms": 48193.45,
+      "p95_latency_ms": 57200.99,
+      "avg_ttft_ms": 21610.18,
+      "p95_ttft_ms": 28532.78
+    }
+  }
+}
