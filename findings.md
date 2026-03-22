@@ -27,6 +27,8 @@
 - 由于 4 卡 H100 可用，`Qwen3.5-122B` 分布式部署不再只是理论项，可以争取做到最小可运行验证或启动级演示。
 - 已新增 `vllm_base/` 路线，完全不修改 `baseline/`；其目标是基于 `vLLM` 复用 baseline 的 prompt/eval 文件和结果字段口径。
 - 已新增 `vllm_base/bash/` 脚本，可串行执行单条推理、benchmark 和 accuracy，并将结果保存到 `results/vllm_base/<MODEL_NAME>/`。
+- 已新增 `vllm_serve_exp/` 路线，用于 `vllm serve` 的在线服务实验，单独承担真实 TTFT、并发 benchmark 和在线 accuracy 评测。
+- `vllm_serve_exp` 与 `vllm_base` 的职责不同：前者测在线服务能力，后者测离线/本地推理能力。
 
 ## Technical Decisions
 | Decision | Rationale |

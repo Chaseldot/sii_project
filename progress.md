@@ -82,6 +82,7 @@
   - 根据“两天工期 + 1 卡/4 卡 H100”约束，新增 48 小时执行版计划。
   - 修复 baseline 单条推理中的 TTFT 打印键名错误，并加入回归测试。
   - 新增 `vllm_base/` vLLM 路线及 `vllm_base/bash/` 全流程脚本，供夜间跑单卡 14B 结果。
+  - 新增 `vllm_serve_exp/` 在线实验目录，支持 `vllm serve` 的并发 benchmark 和在线 accuracy。
 - Files created/modified:
   - `课题完成规划.md` (created)
   - `task_plan.md` (updated)
@@ -90,6 +91,9 @@
   - `vllm_base/*` (created)
   - `vllm_base/bash/*` (created)
   - `tests/test_vllm_base_common.py` (created)
+  - `vllm_serve_exp/*` (created)
+  - `vllm_serve_exp/bash/*` (created)
+  - `tests/test_vllm_serve_exp_common.py` (created)
 
 
 ---
