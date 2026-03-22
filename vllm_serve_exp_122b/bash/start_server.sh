@@ -1,31 +1,41 @@
 #!/usr/bin/env bash
+# ===== User Config =====
+# 直接修改下面这些变量即可，无需再到脚本中部找默认值。
+MODEL_PATH="${MODEL_PATH:-/inspire/ssd/project/mianxiangdayuyanmoxing/public/Qwen3.5-122B}"
+SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen3.5-122b-vllm-serve}"
+CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3}"
+HOST="${HOST:-127.0.0.1}"
+PORT="${PORT:-8100}"
+
+# 模型加载 / 格式 / 量化 / 多卡
+LOAD_FORMAT="${LOAD_FORMAT:-auto}"          # auto / safetensors / pt / gguf 等
+DTYPE="${DTYPE:-bfloat16}"
+QUANTIZATION="${QUANTIZATION:-}"            # 例如 awq / gptq；为空表示不启用
+TENSOR_PARALLEL_SIZE="${TENSOR_PARALLEL_SIZE:-4}"
+TRUST_REMOTE_CODE="${TRUST_REMOTE_CODE:-1}"
+DISTRIBUTED_EXECUTOR_BACKEND="${DISTRIBUTED_EXECUTOR_BACKEND:-mp}"
+
+# 动态 Batch / Token 缓存 / 显存相关
+GPU_MEMORY_UTILIZATION="${GPU_MEMORY_UTILIZATION:-0.90}"
+MAX_MODEL_LEN="${MAX_MODEL_LEN:-8192}"
+# MAX_NUM_SEQS="${MAX_NUM_SEQS:-128}"
+MAX_NUM_BATCHED_TOKENS="${MAX_NUM_BATCHED_TOKENS:-8192}"
+ENABLE_PREFIX_CACHING="${ENABLE_PREFIX_CACHING:-1}"
+ENFORCE_EAGER="${ENFORCE_EAGER:-0}"
+# ===== End User Config =====
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
-MODEL_PATH="${MODEL_PATH:-/inspire/ssd/project/mianxiangdayuyanmoxing/public/Qwen3.5-122B}"
-
-SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen3.5-122b-vllm-serve}"
-export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3}"
-HOST="${HOST:-127.0.0.1}"
-PORT="${PORT:-8100}"
-DTYPE="${DTYPE:-bfloat16}"
-TENSOR_PARALLEL_SIZE="${TENSOR_PARALLEL_SIZE:-4}"
-GPU_MEMORY_UTILIZATION="${GPU_MEMORY_UTILIZATION:-0.90}"
-MAX_MODEL_LEN="${MAX_MODEL_LEN:-16384}"
-MAX_NUM_SEQS="${MAX_NUM_SEQS:-16}"
-MAX_NUM_BATCHED_TOKENS="${MAX_NUM_BATCHED_TOKENS:-8192}"
-TRUST_REMOTE_CODE="${TRUST_REMOTE_CODE:-1}"
-DISTRIBUTED_EXECUTOR_BACKEND="${DISTRIBUTED_EXECUTOR_BACKEND:-mp}"
-ENABLE_PREFIX_CACHING="${ENABLE_PREFIX_CACHING:-1}"
-ENFORCE_EAGER="${ENFORCE_EAGER:-0}"
+export CUDA_VISIBLE_DEVICES
 
 CMD=(
   vllm serve "$MODEL_PATH"
   --host "$HOST"
   --port "$PORT"
   --served-model-name "$SERVED_MODEL_NAME"
+  --load-format "$LOAD_FORMAT"
   --dtype "$DTYPE"
   --tensor-parallel-size "$TENSOR_PARALLEL_SIZE"
   --gpu-memory-utilization "$GPU_MEMORY_UTILIZATION"
@@ -35,6 +45,9 @@ CMD=(
 
 if [[ "$TRUST_REMOTE_CODE" == "1" ]]; then
   CMD+=(--trust-remote-code)
+fi
+if [[ -n "$QUANTIZATION" ]]; then
+  CMD+=(--quantization "$QUANTIZATION")
 fi
 if [[ -n "${MAX_NUM_SEQS:-}" ]]; then
   CMD+=(--max-num-seqs "$MAX_NUM_SEQS")

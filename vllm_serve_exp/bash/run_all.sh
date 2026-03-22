@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
-export RUN_TAG=14b_online
-export CONCURRENCY_LIST="1 2 4 8 16 32 64 99"
+# ===== User Config =====
+RUN_TAG="${RUN_TAG:-14b_online}"
+CONCURRENCY_LIST="${CONCURRENCY_LIST:-1 2 4 8 12 16}"
+EVAL_LIMIT="${EVAL_LIMIT:-0}"
+RESULT_ROOT="${RESULT_ROOT:-/inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results}"
+ACCURACY_EXP_NAME="${ACCURACY_EXP_NAME:-${RUN_TAG}_accuracy}"
+# ===== End User Config =====
 
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
-RESULT_ROOT="${RESULT_ROOT:-/inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results}"
-RUN_TAG="${RUN_TAG:-14b_online}"
-CONCURRENCY_LIST="${CONCURRENCY_LIST:-1 2 4 8 16 32 64 99}"
-ACCURACY_EXP_NAME="${ACCURACY_EXP_NAME:-${RUN_TAG}_accuracy}"
 SUMMARY_OUTPUT="${SUMMARY_OUTPUT:-$RESULT_ROOT/vllm_serve/${RUN_TAG}_summary.md}"
 
 echo "[INFO] BASE_URL=${BASE_URL:-http://${HOST:-127.0.0.1}:${PORT:-8000}}"
 echo "[INFO] SERVED_MODEL_NAME=${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-serve}"
 echo "[INFO] CONCURRENCY_LIST=${CONCURRENCY_LIST}"
-echo "[INFO] EVAL_LIMIT=${EVAL_LIMIT:-0}"
+echo "[INFO] EVAL_LIMIT=${EVAL_LIMIT}"
 echo "[INFO] RUN_TAG=${RUN_TAG}"
 
 for CONCURRENCY in ${CONCURRENCY_LIST}; do

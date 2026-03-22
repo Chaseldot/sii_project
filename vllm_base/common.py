@@ -8,7 +8,7 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PROMPT_FILE = ROOT / "baseline" / "prompts.jsonl"
+DEFAULT_PROMPT_FILE = ROOT / "baseline" / "test_prompts.jsonl"
 DEFAULT_EVAL_FILE = ROOT / "baseline" / "ceval_subset.jsonl"
 DEFAULT_MAX_NEW_TOKENS = 256
 

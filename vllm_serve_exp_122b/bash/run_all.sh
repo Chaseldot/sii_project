@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
-export RUN_TAG=122b_online
-export CONCURRENCY_LIST="1 2 4 8 12 16"
-export ACCURACY_CONCURRENCY="${ACCURACY_CONCURRENCY:-16}"
+# ===== User Config =====
+RUN_TAG="${RUN_TAG:-122b_online}"
+CONCURRENCY_LIST="${CONCURRENCY_LIST:-1 2 4 6 8 12}"
+ACCURACY_CONCURRENCY="${ACCURACY_CONCURRENCY:-16}"
+RESULT_ROOT="${RESULT_ROOT:-}"
+RESULT_NAMESPACE="${RESULT_NAMESPACE:-vllm_serve_122b}"
+ACCURACY_EXP_NAME="${ACCURACY_EXP_NAME:-${RUN_TAG}_accuracy}"
+# ===== End User Config =====
 
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
-RESULT_ROOT="${RESULT_ROOT:-$ROOT_DIR/results}"
-RESULT_NAMESPACE="${RESULT_NAMESPACE:-vllm_serve_122b}"
-RUN_TAG="${RUN_TAG:-122b_online}"
-CONCURRENCY_LIST="${CONCURRENCY_LIST:-1 2 4 8 12 16}"
-ACCURACY_EXP_NAME="${ACCURACY_EXP_NAME:-${RUN_TAG}_accuracy}"
+if [[ -z "$RESULT_ROOT" ]]; then
+  RESULT_ROOT="$ROOT_DIR/results"
+fi
 SUMMARY_OUTPUT="${SUMMARY_OUTPUT:-$RESULT_ROOT/$RESULT_NAMESPACE/${RUN_TAG}_summary.md}"
 
 echo "[INFO] BASE_URL=${BASE_URL:-http://${HOST:-127.0.0.1}:${PORT:-8100}}"

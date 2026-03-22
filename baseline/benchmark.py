@@ -18,7 +18,7 @@ import numpy as np
 from pathlib import Path
 from baseline_inference import load_model, infer_single, DEVICE, MAX_NEW_TOKENS
 
-DEFAULT_PROMPT_FILE = Path(__file__).parent / "prompts.jsonl"
+DEFAULT_PROMPT_FILE = Path(__file__).parent / "test_prompts.jsonl"
 
 
 def load_prompts(prompt_file: str) -> list:
@@ -127,6 +127,10 @@ def parse_args():
         "--output", type=str, default=None,
         help="结果保存路径（JSON），例如 results_baseline.json"
     )
+    parser.add_argument(
+        "--limit", type=int, default=0,
+        help="只测试前 N 条 prompt，0 表示全部"
+    )
     return parser.parse_args()
 
 
@@ -138,6 +142,8 @@ if __name__ == "__main__":
 
     # 加载 prompt
     prompts = load_prompts(args.prompt_file)
+    if args.limit > 0:
+        prompts = prompts[: args.limit]
 
     # 运行测试
     stats = run_benchmark(tokenizer, model, prompts)

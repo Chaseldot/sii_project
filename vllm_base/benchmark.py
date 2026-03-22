@@ -22,6 +22,7 @@ def parse_args():
     parser.add_argument("--output", type=str, default=None)
     parser.add_argument("--max_new_tokens", type=int, default=DEFAULT_MAX_NEW_TOKENS)
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--batch_size", type=int, default=1)
     parser.add_argument("--tensor_parallel_size", type=int, default=1)
     parser.add_argument("--dtype", type=str, default="auto")
@@ -34,6 +35,8 @@ def parse_args():
 def main():
     args = parse_args()
     prompts = load_jsonl(args.prompt_file)
+    if args.limit > 0:
+        prompts = prompts[: args.limit]
     prompts = [item["prompt"] if isinstance(item, dict) else item for item in prompts]
     print(f"[INFO] 已加载 {len(prompts)} 条 prompt（来自 {args.prompt_file}）")
 

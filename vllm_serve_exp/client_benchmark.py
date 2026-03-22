@@ -30,11 +30,20 @@ def parse_args():
     parser.add_argument("--max_tokens", type=int, default=1024)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--concurrency", type=int, default=1)
+    parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--sample_interval_sec", type=float, default=0.5)
     return parser.parse_args()
 
 
-def stream_one(base_url: str, model: str, prompt: str, max_tokens: int, temperature: float, tokenizer) -> dict:
+def stream_one(
+    base_url: str,
+    model: str,
+    prompt_id,
+    prompt: str,
+    max_tokens: int,
+    temperature: float,
+    tokenizer,
+) -> dict:
     payload = json.dumps(
         {
             "model": model,
@@ -71,7 +80,9 @@ def stream_one(base_url: str, model: str, prompt: str, max_tokens: int, temperat
         first_token_time = end
 
     return {
+        "prompt_id": prompt_id,
         "prompt": prompt,
+        "prompt_chars": len(prompt),
         "output": output_text,
         "output_tokens": output_tokens,
         "ttft_ms": round((first_token_time - start) * 1000, 2),
@@ -82,10 +93,18 @@ def stream_one(base_url: str, model: str, prompt: str, max_tokens: int, temperat
 def main():
     args = parse_args()
     prompts_data = load_jsonl(args.prompt_file)
-    prompts = [item["prompt"] if isinstance(item, dict) else item for item in prompts_data]
+    if args.limit > 0:
+        prompts_data = prompts_data[: args.limit]
+
+    prompt_records = []
+    for i, item in enumerate(prompts_data, start=1):
+        if isinstance(item, dict):
+            prompt_records.append({"id": item.get("id", i), "prompt": item["prompt"]})
+        else:
+            prompt_records.append({"id": i, "prompt": item})
     tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
 
-    print(f"[INFO] 已加载 {len(prompts)} 条 prompt（来自 {args.prompt_file}）")
+    print(f"[INFO] 已加载 {len(prompt_records)} 条 prompt（来自 {args.prompt_file}）")
     print(f"[INFO] 开始在线 benchmark | concurrency={args.concurrency}")
 
     results = []
@@ -101,18 +120,19 @@ def main():
                 stream_one,
                 args.base_url,
                 args.model,
-                prompt,
+                item["id"],
+                item["prompt"],
                 args.max_tokens,
                 args.temperature,
                 tokenizer,
             )
-            for prompt in prompts
+            for item in prompt_records
         ]
         for i, future in enumerate(as_completed(futures), start=1):
             res = future.result()
             results.append(res)
             print(
-                f"  [{i:3d}/{len(prompts)}] "
+                f"  [{i:3d}/{len(prompt_records)}] "
                 f"ttft={res['ttft_ms']:8.1f} ms  "
                 f"latency={res['latency_ms']:8.1f} ms  "
                 f"output={res['output_tokens']:4d} tokens"

@@ -43,8 +43,10 @@ bash vllm_serve_exp_122b/bash/run_all.sh
 - `TENSOR_PARALLEL_SIZE`: 默认 `4`
 - `GPU_MEMORY_UTILIZATION`: 默认 `0.90`
 - `MAX_MODEL_LEN`: 默认 `16384`
-- `MAX_NUM_SEQS`: 默认 `16`
+- `MAX_NUM_SEQS`: 默认 `12`
 - `MAX_NUM_BATCHED_TOKENS`: 默认 `8192`
 - `ENABLE_PREFIX_CACHING`: 默认 `1`
-- `CONCURRENCY_LIST`: benchmark 并发列表，默认 `1 2 4 8 12 16`
+- `PROMPT_FILE`: 默认 `baseline/test_prompts.jsonl`
+- `PROMPT_LIMIT`: 可选，只跑前 N 条 prompt，便于调参
+- `CONCURRENCY_LIST`: benchmark 并发列表，默认 `1 2 4 6 8 12`
 - `ACCURACY_CONCURRENCY`: accuracy 并发，默认 `16`

@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Quick Config:
+# export RESULT_ROOT=/path/to/results
+# export RESULT_NAMESPACE=vllm_serve_122b
+# export RUN_TAG=122b_online
+# bash vllm_serve_exp_122b/bash/summarize_results.sh
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
