@@ -12,6 +12,8 @@ from .scheduler import LengthAwareScheduler, SchedulerConfig
 
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
     daemon_threads = True
+    allow_reuse_address = True
+    request_queue_size = 512
 
 
 def make_handler(scheduler: LengthAwareScheduler, backend_base_url: str):
