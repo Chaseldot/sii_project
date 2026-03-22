@@ -67,8 +67,9 @@ class VLLMServeExpSummaryTest(unittest.TestCase):
     def test_collect_accuracy_rows(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             root = Path(tmpdir)
-            exp = root / "14b_online_accuracy"
-            exp.mkdir()
+            exp_root = root / "14b_online_accuracy"
+            exp = exp_root / "14b_online_c1024"
+            exp.mkdir(parents=True)
             (exp / "accuracy_online.json").write_text(
                 json.dumps(
                     {
@@ -82,11 +83,11 @@ class VLLMServeExpSummaryTest(unittest.TestCase):
 
             rows = collect_accuracy_rows(root, prefix="14b_online_")
             self.assertEqual(len(rows), 1)
-            self.assertEqual(rows[0]["experiment"], "14b_online_accuracy")
+            self.assertEqual(rows[0]["experiment"], "14b_online_accuracy/14b_online_c1024")
 
             table = render_markdown_table(rows, ACCURACY_COLUMNS[:4])
             self.assertIn("| experiment |", table)
-            self.assertIn("14b_online_accuracy", table)
+            self.assertIn("14b_online_accuracy/14b_online_c1024", table)
 
 
 if __name__ == "__main__":

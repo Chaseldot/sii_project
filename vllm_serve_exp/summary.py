@@ -141,16 +141,14 @@ def collect_rows(result_root: Path, filename: str, prefix: str = "") -> list[dic
     if not result_root.exists():
         return rows
 
-    for exp_dir in result_root.iterdir():
-        if not exp_dir.is_dir():
+    for result_file in result_root.rglob(filename):
+        if not result_file.is_file():
             continue
-        if prefix and not exp_dir.name.startswith(prefix):
-            continue
-        result_file = exp_dir / filename
-        if not result_file.exists():
+        exp_name = result_file.parent.relative_to(result_root).as_posix()
+        if prefix and not exp_name.startswith(prefix):
             continue
         payload = load_json(result_file)
-        row = {"experiment": exp_dir.name}
+        row = {"experiment": exp_name}
         row.update(payload)
         rows.append(row)
 
