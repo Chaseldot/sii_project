@@ -1,0 +1,19 @@
+{
+  "avg_gpu_mem_gb": 76.2182,
+  "peak_gpu_mem_gb": 76.2188,
+  "avg_gpu_mem_utilization_perc": 0.9569,
+  "peak_gpu_mem_utilization_perc": 0.957,
+  "avg_kv_cache_usage_perc": 0.9457,
+  "max_kv_cache_usage_perc": 1.0,
+  "avg_num_requests_running": 119.44,
+  "max_num_requests_running": 148.0,
+  "avg_num_requests_waiting": 434.1388,
+  "max_num_requests_waiting": 986.0,
+  "gpu_total_mem_gb": 79.6475,
+  "initial_gpu_mem_gb": 76.209,
+  "final_gpu_mem_gb": 76.2188,
+  "monitor_sample_interval_sec": 0.5,
+  "monitor_gpu_samples": 425,
+  "monitor_kv_samples": 425,
+  "monitor_cpu_cache_samples": 0
+}
