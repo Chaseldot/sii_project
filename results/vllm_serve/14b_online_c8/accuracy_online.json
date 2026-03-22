@@ -2,8 +2,8 @@
   "total": 1251,
   "correct": 972,
   "wrong": 279,
+  "wrong_cases_count": 279,
   "accuracy": 0.777,
   "accuracy_pct": 77.7,
-  "eval_time_sec": 229.2,
-  "wrong_cases_count": 279
+  "eval_time_sec": 229.2
 }

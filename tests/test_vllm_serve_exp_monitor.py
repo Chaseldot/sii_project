@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from vllm_serve_exp.monitor import query_vllm_metrics
+from vllm_serve_exp.monitor import OnlineExperimentMonitor, query_vllm_metrics
 
 
 class FakeResponse:
@@ -38,6 +38,46 @@ class VLLMServeExpMonitorTest(unittest.TestCase):
         self.assertEqual(metrics["num_requests_running"], 2.0)
         self.assertEqual(metrics["num_requests_waiting"], 1.0)
         self.assertEqual(metrics["kv_cache_usage_perc"], 0.42)
+
+    def test_summary_keeps_key_metrics_in_expected_order(self):
+        monitor = OnlineExperimentMonitor(base_url="http://127.0.0.1:8000")
+        monitor.gpu_mem_samples_gb = [70.0, 72.0, 74.0]
+        monitor.gpu_total_mem_gb = 80.0
+        monitor.gpu_mem_utilization_samples = [0.875, 0.9, 0.925]
+        monitor.kv_cache_usage_samples = [0.10, 0.25, 0.30]
+        monitor.waiting_request_samples = [0.0, 1.0, 2.0]
+        monitor.running_request_samples = [4.0, 8.0, 16.0]
+        monitor.cpu_cache_usage_samples = [0.05, 0.10]
+
+        summary = monitor.summary()
+
+        self.assertEqual(
+            list(summary.keys()),
+            [
+                "avg_gpu_mem_gb",
+                "peak_gpu_mem_gb",
+                "avg_gpu_mem_utilization_perc",
+                "peak_gpu_mem_utilization_perc",
+                "avg_kv_cache_usage_perc",
+                "max_kv_cache_usage_perc",
+                "avg_num_requests_running",
+                "max_num_requests_running",
+                "avg_num_requests_waiting",
+                "max_num_requests_waiting",
+                "gpu_total_mem_gb",
+                "initial_gpu_mem_gb",
+                "final_gpu_mem_gb",
+                "monitor_sample_interval_sec",
+                "monitor_gpu_samples",
+                "monitor_kv_samples",
+                "avg_cpu_cache_usage_perc",
+                "max_cpu_cache_usage_perc",
+                "monitor_cpu_cache_samples",
+            ],
+        )
+        self.assertNotIn("min_gpu_mem_gb", summary)
+        self.assertNotIn("min_kv_cache_usage_perc", summary)
+        self.assertNotIn("min_num_requests_running", summary)
 
 
 if __name__ == "__main__":

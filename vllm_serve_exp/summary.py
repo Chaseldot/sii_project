@@ -22,14 +22,10 @@ BENCHMARK_COLUMNS = [
     "peak_gpu_mem_utilization_perc",
     "avg_kv_cache_usage_perc",
     "max_kv_cache_usage_perc",
-    "avg_cpu_cache_usage_perc",
-    "max_cpu_cache_usage_perc",
-    "avg_num_requests_waiting",
-    "max_num_requests_waiting",
     "avg_num_requests_running",
     "max_num_requests_running",
-    "avg_num_requests_swapped",
-    "max_num_requests_swapped",
+    "avg_num_requests_waiting",
+    "max_num_requests_waiting",
 ]
 
 ACCURACY_COLUMNS = [
@@ -46,8 +42,6 @@ ACCURACY_COLUMNS = [
     "peak_gpu_mem_utilization_perc",
     "avg_kv_cache_usage_perc",
     "max_kv_cache_usage_perc",
-    "avg_cpu_cache_usage_perc",
-    "max_cpu_cache_usage_perc",
 ]
 
 BENCHMARK_METRIC_DESCRIPTIONS = {

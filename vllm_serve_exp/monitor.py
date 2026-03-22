@@ -10,6 +10,31 @@ from dataclasses import dataclass, field
 import numpy as np
 
 
+MONITOR_SUMMARY_KEYS = [
+    "avg_gpu_mem_gb",
+    "peak_gpu_mem_gb",
+    "avg_gpu_mem_utilization_perc",
+    "peak_gpu_mem_utilization_perc",
+    "avg_kv_cache_usage_perc",
+    "max_kv_cache_usage_perc",
+    "avg_num_requests_running",
+    "max_num_requests_running",
+    "avg_num_requests_waiting",
+    "max_num_requests_waiting",
+    "gpu_total_mem_gb",
+    "initial_gpu_mem_gb",
+    "final_gpu_mem_gb",
+    "monitor_sample_interval_sec",
+    "monitor_gpu_samples",
+    "monitor_kv_samples",
+    "avg_cpu_cache_usage_perc",
+    "max_cpu_cache_usage_perc",
+    "avg_num_requests_swapped",
+    "max_num_requests_swapped",
+    "monitor_cpu_cache_samples",
+]
+
+
 def query_gpu_memory_stats() -> dict:
     try:
         output = subprocess.check_output(
@@ -138,15 +163,15 @@ class OnlineExperimentMonitor:
                 f"{max_key}_{prefix}": round(float(np.max(samples)), 4),
             }
 
-        summary = {}
+        raw_summary = {}
         if self.gpu_mem_samples_gb:
-            summary.update(summarize(self.gpu_mem_samples_gb, "gpu_mem_gb", max_key="peak"))
-            summary["initial_gpu_mem_gb"] = round(float(self.gpu_mem_samples_gb[0]), 4)
-            summary["final_gpu_mem_gb"] = round(float(self.gpu_mem_samples_gb[-1]), 4)
+            raw_summary.update(summarize(self.gpu_mem_samples_gb, "gpu_mem_gb", max_key="peak"))
+            raw_summary["initial_gpu_mem_gb"] = round(float(self.gpu_mem_samples_gb[0]), 4)
+            raw_summary["final_gpu_mem_gb"] = round(float(self.gpu_mem_samples_gb[-1]), 4)
         if self.gpu_total_mem_gb is not None:
-            summary["gpu_total_mem_gb"] = round(float(self.gpu_total_mem_gb), 4)
+            raw_summary["gpu_total_mem_gb"] = round(float(self.gpu_total_mem_gb), 4)
         if self.gpu_mem_utilization_samples:
-            summary.update(
+            raw_summary.update(
                 summarize(
                     self.gpu_mem_utilization_samples,
                     "gpu_mem_utilization_perc",
@@ -154,17 +179,22 @@ class OnlineExperimentMonitor:
                 )
             )
         if self.kv_cache_usage_samples:
-            summary.update(summarize(self.kv_cache_usage_samples, "kv_cache_usage_perc"))
+            raw_summary.update(summarize(self.kv_cache_usage_samples, "kv_cache_usage_perc"))
         if self.cpu_cache_usage_samples:
-            summary.update(summarize(self.cpu_cache_usage_samples, "cpu_cache_usage_perc"))
+            raw_summary.update(summarize(self.cpu_cache_usage_samples, "cpu_cache_usage_perc"))
         if self.waiting_request_samples:
-            summary.update(summarize(self.waiting_request_samples, "num_requests_waiting"))
+            raw_summary.update(summarize(self.waiting_request_samples, "num_requests_waiting"))
         if self.running_request_samples:
-            summary.update(summarize(self.running_request_samples, "num_requests_running"))
+            raw_summary.update(summarize(self.running_request_samples, "num_requests_running"))
         if self.swapped_request_samples:
-            summary.update(summarize(self.swapped_request_samples, "num_requests_swapped"))
-        summary["monitor_sample_interval_sec"] = self.sample_interval_sec
-        summary["monitor_gpu_samples"] = len(self.gpu_mem_samples_gb)
-        summary["monitor_kv_samples"] = len(self.kv_cache_usage_samples)
-        summary["monitor_cpu_cache_samples"] = len(self.cpu_cache_usage_samples)
-        return summary
+            raw_summary.update(summarize(self.swapped_request_samples, "num_requests_swapped"))
+        raw_summary["monitor_sample_interval_sec"] = self.sample_interval_sec
+        raw_summary["monitor_gpu_samples"] = len(self.gpu_mem_samples_gb)
+        raw_summary["monitor_kv_samples"] = len(self.kv_cache_usage_samples)
+        raw_summary["monitor_cpu_cache_samples"] = len(self.cpu_cache_usage_samples)
+
+        ordered_summary = {}
+        for key in MONITOR_SUMMARY_KEYS:
+            if key in raw_summary:
+                ordered_summary[key] = raw_summary[key]
+        return ordered_summary

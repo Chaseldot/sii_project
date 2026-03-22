@@ -11,6 +11,29 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROMPT_FILE = ROOT / "baseline" / "prompts.jsonl"
 DEFAULT_EVAL_FILE = ROOT / "baseline" / "ceval_subset.jsonl"
 
+BENCHMARK_PRINT_KEYS = [
+    "total_prompts",
+    "total_output_tokens",
+    "wall_time_sec",
+    "overall_throughput_tps",
+    "avg_latency_ms",
+    "p50_latency_ms",
+    "p95_latency_ms",
+    "p99_latency_ms",
+    "avg_ttft_ms",
+    "p95_ttft_ms",
+    "avg_gpu_mem_gb",
+    "peak_gpu_mem_gb",
+    "avg_gpu_mem_utilization_perc",
+    "peak_gpu_mem_utilization_perc",
+    "avg_kv_cache_usage_perc",
+    "max_kv_cache_usage_perc",
+    "avg_num_requests_running",
+    "max_num_requests_running",
+    "avg_num_requests_waiting",
+    "max_num_requests_waiting",
+]
+
 
 def load_jsonl(path: str | Path) -> list[dict]:
     items = []
@@ -95,26 +118,7 @@ def print_benchmark_stats(stats: dict, title: str = "vllm_serve") -> None:
     print("\n" + "=" * 68)
     print(f" Online Benchmark 结果汇总（{title}）")
     print("=" * 68)
-    for key in [
-        "total_prompts",
-        "total_output_tokens",
-        "wall_time_sec",
-        "overall_throughput_tps",
-        "avg_latency_ms",
-        "p50_latency_ms",
-        "p95_latency_ms",
-        "p99_latency_ms",
-        "avg_ttft_ms",
-        "p95_ttft_ms",
-        "avg_gpu_mem_gb",
-        "peak_gpu_mem_gb",
-        "avg_gpu_mem_utilization_perc",
-        "peak_gpu_mem_utilization_perc",
-        "avg_kv_cache_usage_perc",
-        "max_kv_cache_usage_perc",
-        "avg_cpu_cache_usage_perc",
-        "max_cpu_cache_usage_perc",
-    ]:
+    for key in BENCHMARK_PRINT_KEYS:
         print(f"  {key:<24s}: {stats.get(key, 'N/A')}")
     print("=" * 68)
 
