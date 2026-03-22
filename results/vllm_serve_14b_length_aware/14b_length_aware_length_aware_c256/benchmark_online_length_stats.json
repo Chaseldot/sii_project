@@ -1,0 +1,22 @@
+{
+  "short": {
+    "count": 154,
+    "avg_prompt_chars": 36.38,
+    "avg_output_tokens": 634.88,
+    "total_output_tokens": 97771,
+    "avg_latency_ms": 29467.69,
+    "p95_latency_ms": 52041.76,
+    "avg_ttft_ms": 12559.43,
+    "p95_ttft_ms": 27761.16
+  },
+  "long": {
+    "count": 358,
+    "avg_prompt_chars": 1601.37,
+    "avg_output_tokens": 986.97,
+    "total_output_tokens": 353336,
+    "avg_latency_ms": 96307.08,
+    "p95_latency_ms": 124650.2,
+    "avg_ttft_ms": 69533.14,
+    "p95_ttft_ms": 96370.18
+  }
+}
