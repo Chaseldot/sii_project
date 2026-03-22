@@ -24,7 +24,7 @@ LOAD_FORMAT="${LOAD_FORMAT:-auto}"
 QUANTIZATION="${QUANTIZATION:-}"
 GPU_MEMORY_UTILIZATION="${GPU_MEMORY_UTILIZATION:-0.90}"
 MAX_MODEL_LEN="${MAX_MODEL_LEN:-8192}"
-MAX_NUM_SEQS="${MAX_NUM_SEQS:-12}"
+# MAX_NUM_SEQS="${MAX_NUM_SEQS:-12}"
 MAX_NUM_BATCHED_TOKENS="${MAX_NUM_BATCHED_TOKENS:-8192}"
 ENABLE_PREFIX_CACHING="${ENABLE_PREFIX_CACHING:-1}"
 ENFORCE_EAGER="${ENFORCE_EAGER:-0}"
@@ -73,7 +73,7 @@ python -m vllm_122b.benchmark \
   --load_format "$LOAD_FORMAT" \
   --gpu_memory_utilization "$GPU_MEMORY_UTILIZATION" \
   --max_model_len "$MAX_MODEL_LEN" \
-  --max_num_seqs "$MAX_NUM_SEQS" \
+  # --max_num_seqs "$MAX_NUM_SEQS" \
   --max_num_batched_tokens "$MAX_NUM_BATCHED_TOKENS" \
   --monitor_sample_interval_sec "$SAMPLE_INTERVAL_SEC" \
   "${LIMIT_ARGS[@]}" \
