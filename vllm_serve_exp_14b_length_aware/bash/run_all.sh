@@ -2,6 +2,7 @@
 # ===== User Config =====
 RUN_TAG="${RUN_TAG:-14b_length_aware}"
 CONCURRENCY_LIST="${CONCURRENCY_LIST:-128 256 512}"
+POLICY_TAG="${POLICY_TAG:-length_aware}"
 PROMPT_FILE="${PROMPT_FILE:-vllm_serve_exp_14b_length_aware/data/mixed_prompts_30s70l.jsonl}"
 PROMPT_LIMIT="${PROMPT_LIMIT:-0}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-1024}"
@@ -17,6 +18,7 @@ for concurrency in $CONCURRENCY_LIST; do
   echo "[INFO] Running length-aware benchmark at concurrency=$concurrency"
   CONCURRENCY="$concurrency" \
   RUN_TAG="$RUN_TAG" \
+  POLICY_TAG="$POLICY_TAG" \
   PROMPT_FILE="$PROMPT_FILE" \
   PROMPT_LIMIT="$PROMPT_LIMIT" \
   MAX_NEW_TOKENS="$MAX_NEW_TOKENS" \

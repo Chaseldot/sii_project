@@ -5,6 +5,7 @@ HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-8030}"
 BASE_URL="${BASE_URL:-http://$HOST:$PORT}"
 SCHEDULER_STATS_URL="${SCHEDULER_STATS_URL:-$BASE_URL/scheduler_stats}"
+POLICY_TAG="${POLICY_TAG:-length_aware}"
 MODEL_PATH="${MODEL_PATH:-/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct}"
 SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-length-aware}"
 PROMPT_FILE="${PROMPT_FILE:-vllm_serve_exp_14b_length_aware/data/mixed_prompts_30s70l.jsonl}"
@@ -15,7 +16,7 @@ CONCURRENCY="${CONCURRENCY:-256}"
 SAMPLE_INTERVAL_SEC="${SAMPLE_INTERVAL_SEC:-0.5}"
 RESULT_ROOT="${RESULT_ROOT:-$PWD/results}"
 RESULT_NAMESPACE="${RESULT_NAMESPACE:-vllm_serve_14b_length_aware}"
-EXP_NAME="${EXP_NAME:-${RUN_TAG}_c${CONCURRENCY}}"
+EXP_NAME="${EXP_NAME:-${RUN_TAG}_${POLICY_TAG}_c${CONCURRENCY}}"
 # ===== End User Config =====
 set -euo pipefail
 

@@ -151,10 +151,12 @@ def parse_args():
     parser.add_argument("--host", type=str, default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8030)
     parser.add_argument("--backend_base_url", type=str, required=True)
+    parser.add_argument("--policy", type=str, default="length_aware", choices=["fifo", "length_aware"])
     parser.add_argument("--short_threshold_chars", type=int, default=256)
     parser.add_argument("--short_weight", type=int, default=3)
     parser.add_argument("--long_weight", type=int, default=1)
     parser.add_argument("--max_consecutive_short", type=int, default=6)
+    parser.add_argument("--max_active_requests", type=int, default=64)
     parser.add_argument("--max_queue_wait_sec", type=float, default=300.0)
     return parser.parse_args()
 
@@ -163,10 +165,12 @@ def main():
     args = parse_args()
     scheduler = LengthAwareScheduler(
         SchedulerConfig(
+            policy=args.policy,
             short_threshold_chars=args.short_threshold_chars,
             short_weight=args.short_weight,
             long_weight=args.long_weight,
             max_consecutive_short=args.max_consecutive_short,
+            max_active_requests=args.max_active_requests,
             max_queue_wait_sec=args.max_queue_wait_sec,
         )
     )
@@ -174,10 +178,12 @@ def main():
     server = ThreadingHTTPServer((args.host, args.port), handler)
     print(f"[INFO] Length-aware proxy listening on http://{args.host}:{args.port}")
     print(f"[INFO] backend_base_url={args.backend_base_url}")
+    print(f"[INFO] policy={args.policy}")
     print(f"[INFO] short_threshold_chars={args.short_threshold_chars}")
     print(f"[INFO] short_weight={args.short_weight}")
     print(f"[INFO] long_weight={args.long_weight}")
     print(f"[INFO] max_consecutive_short={args.max_consecutive_short}")
+    print(f"[INFO] max_active_requests={args.max_active_requests}")
     server.serve_forever()
 
 

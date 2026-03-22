@@ -2,18 +2,20 @@
 
 `vllm_serve_exp_14b_length_aware` 是独立的 14B 在线调度实验目录。
 
-这版不改 vLLM 源码，只在前面加一个外部双队列 proxy：
+这版不改 vLLM 源码，只在前面加一个外部 active-dispatch proxy：
 
+- `fifo`
 - `short queue`
 - `long queue`
 - `SHORT_WEIGHT:LONG_WEIGHT` 加权轮询
 - `MAX_CONSECUTIVE_SHORT` 防止 long 饿死
+- `MAX_ACTIVE_REQUESTS` 统一控制进入后端的活动请求数
 
-第一版不把 `inflight` 作为主要变量，目标是先验证：
+推荐做三组对照：
 
-- 在混合长短请求场景下
-- 仅靠 request-level 重排顺序
-- 能否改善 short 请求的 `TTFT / latency`
+- `client -> vLLM`
+- `client -> FIFO proxy -> vLLM`
+- `client -> Length-Aware proxy -> vLLM`
 
 核心脚本：
 
