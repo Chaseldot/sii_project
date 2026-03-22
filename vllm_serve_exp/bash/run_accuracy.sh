@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+export RUN_TAG=14b_online
+CONCURRENCY=1024
+
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"

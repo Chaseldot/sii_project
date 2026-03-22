@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 export RUN_TAG=14b_online
-CONCURRENCY=16
+CONCURRENCY=1
 
 set -euo pipefail
 
