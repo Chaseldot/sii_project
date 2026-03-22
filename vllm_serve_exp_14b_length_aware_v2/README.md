@@ -12,6 +12,12 @@
 - `MAX_CONSECUTIVE_SHORT` 防止 long 饿死
 - `MAX_ACTIVE_REQUESTS` 统一控制进入后端的活动请求数
 
+后端服务复用约定：
+
+- 默认继续复用 baseline 已经启动的 `8020` 服务
+- 默认 `SERVED_MODEL_NAME=qwen2.5-14b-vllm-baseline`
+- 迭代新版本时优先只重启 proxy，不重复起 server
+
 推荐做三组对照：
 
 - `client -> vLLM`

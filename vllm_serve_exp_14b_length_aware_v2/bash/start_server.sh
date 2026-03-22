@@ -2,7 +2,8 @@
 # ===== User Config =====
 # 直接修改下面这些变量即可，无需再到脚本中部找默认值。
 MODEL_PATH="${MODEL_PATH:-/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct}"
-SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-length-aware-v2}"
+# 默认与 baseline 共用同一个 served model name，方便复用已经启动的后端服务。
+SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-baseline}"
 CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-8020}"
