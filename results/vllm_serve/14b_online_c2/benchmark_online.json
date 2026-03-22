@@ -1,0 +1,12 @@
+{
+  "total_prompts": 99,
+  "total_output_tokens": 25297,
+  "wall_time_sec": 142.32,
+  "overall_throughput_tps": 177.75,
+  "avg_latency_ms": 2849.97,
+  "p50_latency_ms": 2855.08,
+  "p95_latency_ms": 2857.38,
+  "p99_latency_ms": 2857.85,
+  "avg_ttft_ms": 34.16,
+  "p95_ttft_ms": 43.67
+}

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export MODEL_PATH=/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct
 export SERVED_MODEL_NAME=qwen2.5-14b-vllm-serve
-export CONCURRENCY=1
+export CONCURRENCY=4
 
 set -euo pipefail
 
