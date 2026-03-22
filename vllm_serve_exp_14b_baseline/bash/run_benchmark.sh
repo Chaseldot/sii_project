@@ -6,7 +6,8 @@ PORT="${PORT:-8020}"
 BASE_URL="${BASE_URL:-http://$HOST:$PORT}"
 MODEL_PATH="${MODEL_PATH:-/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct}"
 SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-baseline}"
-PROMPT_FILE="${PROMPT_FILE:-baseline/test_prompts.jsonl}"
+# baseline 默认先跑混合数据，后续可以直接改这里切换数据集。
+PROMPT_FILE="${PROMPT_FILE:-vllm_serve_exp_14b_baseline/data/mixed_prompts_30s70l.jsonl}"
 PROMPT_LIMIT="${PROMPT_LIMIT:-0}"          # 0 表示全量
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-1024}"
 TEMPERATURE="${TEMPERATURE:-0.0}"

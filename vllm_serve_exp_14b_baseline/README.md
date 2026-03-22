@@ -14,6 +14,7 @@
 默认配置：
 
 - 模型：`Qwen2.5-14B-Instruct`
+- benchmark 数据：`vllm_serve_exp_14b_baseline/data/mixed_prompts_30s70l.jsonl`
 - `MAX_NEW_TOKENS=1024`
 - `MAX_NUM_SEQS=64`
 - `MAX_NUM_BATCHED_TOKENS=8192`
@@ -25,3 +26,4 @@
 - `bash vllm_serve_exp_14b_baseline/bash/run_benchmark.sh`
 - `bash vllm_serve_exp_14b_baseline/bash/run_accuracy.sh`
 - `bash vllm_serve_exp_14b_baseline/bash/run_all.sh`
+- `bash vllm_serve_exp_14b_baseline/bash/build_mixed_prompts.sh`
