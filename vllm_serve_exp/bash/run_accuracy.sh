@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 export RUN_TAG=14b_online
-CONCURRENCY=1024
+ACCURACY_CONCURRENCY=1024
 
 set -euo pipefail
 
@@ -11,10 +11,11 @@ HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-8000}"
 BASE_URL="${BASE_URL:-http://$HOST:$PORT}"
 SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-serve}"
-CONCURRENCY="${CONCURRENCY:-8}"
+ACCURACY_CONCURRENCY="${ACCURACY_CONCURRENCY:-${CONCURRENCY:-8}}"
 
-RESULT_ROOT="${RESULT_ROOT:-/inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results}"
-EXP_NAME="${EXP_NAME:-14b_online_c${CONCURRENCY}}"
+RESULT_ROOT="${RESULT_ROOT:-$ROOT_DIR/results}"
+RUN_TAG="${RUN_TAG:-14b_online}"
+EXP_NAME="${EXP_NAME:-${RUN_TAG}_accuracy}"
 RESULT_DIR="${RESULT_DIR:-$RESULT_ROOT/vllm_serve/$EXP_NAME}"
 mkdir -p "$RESULT_DIR/logs"
 
@@ -33,6 +34,7 @@ python -m vllm_serve_exp.evaluate_accuracy \
   --model "$SERVED_MODEL_NAME" \
   --eval_file "${EVAL_FILE:-baseline/ceval_subset.jsonl}" \
   --output "$RESULT_DIR/accuracy_online.json" \
+  --concurrency "${ACCURACY_CONCURRENCY}" \
   --max_tokens "${ACCURACY_MAX_TOKENS:-16}" \
   --temperature "${TEMPERATURE:-0.0}" \
   --sample_interval_sec "${SAMPLE_INTERVAL_SEC:-0.5}" \

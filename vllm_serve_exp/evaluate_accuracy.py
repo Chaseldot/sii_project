@@ -4,6 +4,7 @@ import argparse
 import json
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .common import (
     combine_result_with_mem_metrics,
@@ -27,6 +28,7 @@ def parse_args():
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--max_tokens", type=int, default=16)
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--concurrency", type=int, default=1)
     parser.add_argument("--sample_interval_sec", type=float, default=0.5)
     return parser.parse_args()
 
@@ -55,15 +57,75 @@ def complete_one(base_url: str, model: str, prompt: str, max_tokens: int, temper
     return choices[0].get("text", "")
 
 
+def evaluate_online_accuracy(
+    eval_data: list[dict],
+    base_url: str,
+    model: str,
+    max_tokens: int,
+    temperature: float,
+    concurrency: int,
+) -> tuple[int, list[dict]]:
+    correct = 0
+    wrong_cases = []
+    completed = 0
+    total = len(eval_data)
+    indexed_results: list[tuple[str, str] | None] = [None] * total
+
+    with ThreadPoolExecutor(max_workers=max(1, concurrency)) as executor:
+        futures = {
+            executor.submit(
+                complete_one,
+                base_url,
+                model,
+                build_ceval_prompt(item),
+                max_tokens,
+                temperature,
+            ): (i, item)
+            for i, item in enumerate(eval_data)
+        }
+
+        for future in as_completed(futures):
+            i, item = futures[future]
+            output = future.result()
+            pred = extract_answer(output)
+            gold = item["answer"].upper()
+            indexed_results[i] = (pred, gold)
+            completed += 1
+            if pred == gold:
+                correct += 1
+            if completed % 20 == 0 or completed == total:
+                acc_so_far = correct / completed
+                print(
+                    f"  [{completed:4d}/{total}]  "
+                    f"当前准确率: {acc_so_far*100:.1f}%  "
+                    f"正确: {correct}  错误: {completed-correct}"
+                )
+
+    for i, item in enumerate(eval_data):
+        pair = indexed_results[i]
+        if pair is None:
+            raise RuntimeError(f"Missing evaluation result for item {i}")
+        pred, gold = pair
+        if pred != gold:
+            wrong_cases.append(
+                {
+                    "id": item.get("id", i),
+                    "question": item["question"][:60] + "...",
+                    "pred": pred,
+                    "gold": gold,
+                }
+            )
+    return correct, wrong_cases
+
+
 def main():
     args = parse_args()
     eval_data = load_jsonl(args.eval_file)
     if args.limit > 0:
         eval_data = eval_data[: args.limit]
     print(f"[INFO] 已加载 {len(eval_data)} 道评测题（来自 {args.eval_file}）")
+    print(f"[INFO] 开始在线 accuracy | concurrency={args.concurrency}")
 
-    correct = 0
-    wrong_cases = []
     monitor = OnlineExperimentMonitor(
         base_url=args.base_url,
         sample_interval_sec=args.sample_interval_sec,
@@ -73,29 +135,14 @@ def main():
     print(f"\n[Accuracy] 开始在线精度评测，共 {len(eval_data)} 道题...")
     print("-" * 60)
 
-    for i, item in enumerate(eval_data):
-        prompt = build_ceval_prompt(item)
-        output = complete_one(args.base_url, args.model, prompt, args.max_tokens, args.temperature)
-        pred = extract_answer(output)
-        gold = item["answer"].upper()
-        if pred == gold:
-            correct += 1
-        else:
-            wrong_cases.append(
-                {
-                    "id": item.get("id", i),
-                    "question": item["question"][:60] + "...",
-                    "pred": pred,
-                    "gold": gold,
-                }
-            )
-        if (i + 1) % 20 == 0 or (i + 1) == len(eval_data):
-            acc_so_far = correct / (i + 1)
-            print(
-                f"  [{i+1:4d}/{len(eval_data)}]  "
-                f"当前准确率: {acc_so_far*100:.1f}%  "
-                f"正确: {correct}  错误: {i+1-correct}"
-            )
+    correct, wrong_cases = evaluate_online_accuracy(
+        eval_data=eval_data,
+        base_url=args.base_url,
+        model=args.model,
+        max_tokens=args.max_tokens,
+        temperature=args.temperature,
+        concurrency=args.concurrency,
+    )
 
     t_end = time.perf_counter()
     mem_metrics = monitor.stop()
