@@ -106,6 +106,14 @@ def print_benchmark_stats(stats: dict, title: str = "vllm_serve") -> None:
         "p99_latency_ms",
         "avg_ttft_ms",
         "p95_ttft_ms",
+        "avg_gpu_mem_gb",
+        "peak_gpu_mem_gb",
+        "avg_gpu_mem_utilization_perc",
+        "peak_gpu_mem_utilization_perc",
+        "avg_kv_cache_usage_perc",
+        "max_kv_cache_usage_perc",
+        "avg_cpu_cache_usage_perc",
+        "max_cpu_cache_usage_perc",
     ]:
         print(f"  {key:<24s}: {stats.get(key, 'N/A')}")
     print("=" * 68)
