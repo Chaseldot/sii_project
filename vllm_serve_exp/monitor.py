@@ -56,7 +56,7 @@ def query_vllm_metrics(base_url: str) -> dict:
         parts = line.split()
         if len(parts) < 2:
             continue
-        metric_name = parts[0].split(":", maxsplit=1)[1]
+        metric_name = parts[0].split(":", maxsplit=1)[1].split("{", maxsplit=1)[0]
         try:
             metric_value = float(parts[-1])
         except ValueError:
