@@ -8,7 +8,7 @@ SCHEDULER_STATS_URL="${SCHEDULER_STATS_URL:-$BASE_URL/scheduler_stats}"
 POLICY_TAG="${POLICY_TAG:-length_aware_v2}"
 MODEL_PATH="${MODEL_PATH:-/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct}"
 # 默认与 baseline 共用同一个 served model name，方便复用已经启动的后端服务。
-SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-baseline}"
+SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen2.5-14b-vllm-length-aware}"
 PROMPT_FILE="${PROMPT_FILE:-vllm_serve_exp_14b_length_aware_v2/data/mixed_prompts_30s70l.jsonl}"
 PROMPT_LIMIT="${PROMPT_LIMIT:-0}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-1024}"
