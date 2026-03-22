@@ -1,0 +1,111 @@
+[INFO] 已加载 1251 道评测题（来自 baseline/ceval_subset.jsonl）
+INFO 03-21 10:30:00 [utils.py:233] non-default args: {'trust_remote_code': True, 'enable_prefix_caching': False, 'disable_log_stats': True, 'model': '/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct'}
+INFO 03-21 10:30:00 [model.py:533] Resolved architecture: Qwen2ForCausalLM
+INFO 03-21 10:30:00 [model.py:1582] Using max model len 32768
+INFO 03-21 10:30:00 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=16384.
+INFO 03-21 10:30:00 [vllm.py:754] Asynchronous scheduling is enabled.
+(EngineCore pid=568846) INFO 03-21 10:30:02 [core.py:103] Initializing a V1 LLM engine (v0.18.0) with config: model='/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct', speculative_config=None, tokenizer='/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=568846) INFO 03-21 10:30:02 [parallel_state.py:1395] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.244.96.6:37537 backend=nccl
+(EngineCore pid=568846) INFO 03-21 10:30:03 [parallel_state.py:1717] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=568846) INFO 03-21 10:30:03 [gpu_model_runner.py:4481] Starting to load model /inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct...
+(EngineCore pid=568846) INFO 03-21 10:30:04 [cuda.py:317] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=568846) INFO 03-21 10:30:04 [flash_attn.py:598] Using FlashAttention version 3
+(EngineCore pid=568846) INFO 03-21 10:30:17 [default_loader.py:384] Loading weights took 13.32 seconds
+(EngineCore pid=568846) INFO 03-21 10:30:18 [gpu_model_runner.py:4566] Model loading took 27.57 GiB memory and 14.018565 seconds
+(EngineCore pid=568846) INFO 03-21 10:30:21 [backends.py:988] Using cache directory: /root/.cache/vllm/torch_compile_cache/9a9ae4e2f0/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=568846) INFO 03-21 10:30:21 [backends.py:1048] Dynamo bytecode transform time: 3.38 s
+(EngineCore pid=568846) INFO 03-21 10:30:23 [backends.py:284] Directly load the compiled graph(s) for compile range (1, 16384) from the cache, took 1.694 s
+(EngineCore pid=568846) INFO 03-21 10:30:23 [monitor.py:48] torch.compile took 5.46 s in total
+(EngineCore pid=568846) INFO 03-21 10:30:23 [decorators.py:296] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/de5e916d5f6805068e889deb030ab9e2f531fae1d81d5fdcc4296dd0a81c4e1b/rank_0_0/model
+(EngineCore pid=568846) INFO 03-21 10:30:24 [monitor.py:76] Initial profiling/warmup run took 1.04 s
+(EngineCore pid=568846) INFO 03-21 10:30:25 [kv_cache_utils.py:826] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512
+(EngineCore pid=568846) INFO 03-21 10:30:25 [gpu_model_runner.py:5607] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=51 (largest=512)
+(EngineCore pid=568846) INFO 03-21 10:30:25 [gpu_model_runner.py:5686] Estimated CUDA graph memory: 1.10 GiB total
+(EngineCore pid=568846) INFO 03-21 10:30:26 [gpu_worker.py:456] Available KV cache memory: 41.13 GiB
+(EngineCore pid=568846) INFO 03-21 10:30:26 [gpu_worker.py:490] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9139 to maintain the same effective KV cache size.
+(EngineCore pid=568846) INFO 03-21 10:30:26 [kv_cache_utils.py:1316] GPU KV cache size: 224,640 tokens
+(EngineCore pid=568846) INFO 03-21 10:30:26 [kv_cache_utils.py:1321] Maximum concurrency for 32,768 tokens per request: 6.86x
+(EngineCore pid=568846) INFO 03-21 10:30:31 [gpu_model_runner.py:5746] Graph capturing finished in 6 secs, took 1.27 GiB
+(EngineCore pid=568846) INFO 03-21 10:30:31 [gpu_worker.py:617] CUDA graph pool memory: 1.27 GiB (actual), 1.1 GiB (estimated), difference: 0.16 GiB (13.0%).
+(EngineCore pid=568846) INFO 03-21 10:30:32 [core.py:281] init engine (profile, create kv cache, warmup model) took 13.79 seconds
+INFO 03-21 10:30:32 [llm.py:391] Supported tasks: ['generate']
+(EngineCore pid=568846) INFO 03-21 11:25:49 [core.py:1201] Shutdown initiated (timeout=0)
+(EngineCore pid=568846) INFO 03-21 11:25:49 [core.py:1224] Shutdown complete
+
+[Accuracy] 开始精度评测，共 1251 道题...
+------------------------------------------------------------
+  [  20/1251]  当前准确率: 95.0%  正确: 19  错误: 1
+  [  40/1251]  当前准确率: 90.0%  正确: 36  错误: 4
+  [  60/1251]  当前准确率: 86.7%  正确: 52  错误: 8
+  [  80/1251]  当前准确率: 86.2%  正确: 69  错误: 11
+  [ 100/1251]  当前准确率: 83.0%  正确: 83  错误: 17
+  [ 120/1251]  当前准确率: 81.7%  正确: 98  错误: 22
+  [ 140/1251]  当前准确率: 80.7%  正确: 113  错误: 27
+  [ 160/1251]  当前准确率: 80.6%  正确: 129  错误: 31
+  [ 180/1251]  当前准确率: 81.7%  正确: 147  错误: 33
+  [ 200/1251]  当前准确率: 82.0%  正确: 164  错误: 36
+  [ 220/1251]  当前准确率: 80.9%  正确: 178  错误: 42
+  [ 240/1251]  当前准确率: 80.4%  正确: 193  错误: 47
+  [ 260/1251]  当前准确率: 79.6%  正确: 207  错误: 53
+  [ 280/1251]  当前准确率: 80.4%  正确: 225  错误: 55
+  [ 300/1251]  当前准确率: 80.3%  正确: 241  错误: 59
+  [ 320/1251]  当前准确率: 80.9%  正确: 259  错误: 61
+  [ 340/1251]  当前准确率: 80.6%  正确: 274  错误: 66
+  [ 360/1251]  当前准确率: 81.1%  正确: 292  错误: 68
+  [ 380/1251]  当前准确率: 81.3%  正确: 309  错误: 71
+  [ 400/1251]  当前准确率: 81.5%  正确: 326  错误: 74
+  [ 420/1251]  当前准确率: 81.7%  正确: 343  错误: 77
+  [ 440/1251]  当前准确率: 81.4%  正确: 358  错误: 82
+  [ 460/1251]  当前准确率: 81.5%  正确: 375  错误: 85
+  [ 480/1251]  当前准确率: 81.7%  正确: 392  错误: 88
+  [ 500/1251]  当前准确率: 80.8%  正确: 404  错误: 96
+  [ 520/1251]  当前准确率: 80.6%  正确: 419  错误: 101
+  [ 540/1251]  当前准确率: 80.7%  正确: 436  错误: 104
+  [ 560/1251]  当前准确率: 81.1%  正确: 454  错误: 106
+  [ 580/1251]  当前准确率: 81.2%  正确: 471  错误: 109
+  [ 600/1251]  当前准确率: 81.3%  正确: 488  错误: 112
+  [ 620/1251]  当前准确率: 81.6%  正确: 506  错误: 114
+  [ 640/1251]  当前准确率: 81.7%  正确: 523  错误: 117
+  [ 660/1251]  当前准确率: 81.5%  正确: 538  错误: 122
+  [ 680/1251]  当前准确率: 81.8%  正确: 556  错误: 124
+  [ 700/1251]  当前准确率: 81.9%  正确: 573  错误: 127
+  [ 720/1251]  当前准确率: 81.9%  正确: 590  错误: 130
+  [ 740/1251]  当前准确率: 81.9%  正确: 606  错误: 134
+  [ 760/1251]  当前准确率: 82.0%  正确: 623  错误: 137
+  [ 780/1251]  当前准确率: 81.9%  正确: 639  错误: 141
+  [ 800/1251]  当前准确率: 82.2%  正确: 658  错误: 142
+  [ 820/1251]  当前准确率: 82.1%  正确: 673  错误: 147
+  [ 840/1251]  当前准确率: 82.0%  正确: 689  错误: 151
+  [ 860/1251]  当前准确率: 82.2%  正确: 707  错误: 153
+  [ 880/1251]  当前准确率: 82.2%  正确: 723  错误: 157
+  [ 900/1251]  当前准确率: 82.2%  正确: 740  错误: 160
+  [ 920/1251]  当前准确率: 81.8%  正确: 753  错误: 167
+  [ 940/1251]  当前准确率: 81.2%  正确: 763  错误: 177
+  [ 960/1251]  当前准确率: 81.0%  正确: 778  错误: 182
+  [ 980/1251]  当前准确率: 80.7%  正确: 791  错误: 189
+  [1000/1251]  当前准确率: 80.5%  正确: 805  错误: 195
+  [1020/1251]  当前准确率: 80.2%  正确: 818  错误: 202
+  [1040/1251]  当前准确率: 79.8%  正确: 830  错误: 210
+  [1060/1251]  当前准确率: 79.7%  正确: 845  错误: 215
+  [1080/1251]  当前准确率: 79.7%  正确: 861  错误: 219
+  [1100/1251]  当前准确率: 79.5%  正确: 874  错误: 226
+  [1120/1251]  当前准确率: 79.5%  正确: 890  错误: 230
+  [1140/1251]  当前准确率: 79.1%  正确: 902  错误: 238
+  [1160/1251]  当前准确率: 78.9%  正确: 915  错误: 245
+  [1180/1251]  当前准确率: 78.5%  正确: 926  错误: 254
+  [1200/1251]  当前准确率: 78.4%  正确: 941  错误: 259
+  [1220/1251]  当前准确率: 78.1%  正确: 953  错误: 267
+  [1240/1251]  当前准确率: 78.0%  正确: 967  错误: 273
+  [1251/1251]  当前准确率: 77.7%  正确: 972  错误: 279
+
+============================================================
+ 精度评测结果
+============================================================
+  总题数       : 1251
+  答对题数     : 972
+  答错题数     : 279
+  准确率       : 77.70%
+  评测耗时     : 3316.36 sec
+============================================================
+
+[INFO] 结果已保存至: /inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results/vllm_base/14b/accuracy_optimized.json

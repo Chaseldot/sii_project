@@ -1,0 +1,10 @@
+{
+  "prompt": "请用三句话解释大语言模型推理中KV Cache的作用。",
+  "output": " KV Cache（Key-Value Cache）在大语言模型推理中用于存储模型在生成过程中产生的中间状态，以减少重复计算，提高推理效率；它通过缓存Transformer模型中自注意力机制产生的键值对，使得在生成下一个词时可以直接从缓存中读取相关的信息，而无需重新计算；这样不仅加速了生成过程，还减少了内存的使用，使得长文本生成更加高效可行。",
+  "input_tokens": 14,
+  "output_tokens": 91,
+  "total_latency_ms": 1022.54,
+  "ttft_ms": 1022.54,
+  "throughput_tps": 88.99,
+  "peak_gpu_mem_gb": 0.0
+}
