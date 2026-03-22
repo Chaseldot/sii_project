@@ -50,7 +50,7 @@ def parse_args():
     parser.add_argument(
         "--total_samples",
         type=int,
-        default=1024,
+        default=512,
         help="mode=fixed_total 时生效；0 表示自动退回 preserve_short 逻辑。",
     )
     parser.add_argument(
