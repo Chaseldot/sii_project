@@ -27,7 +27,7 @@ def parse_args():
     parser.add_argument("--model_path", type=str, required=True, help="local model path for tokenizer")
     parser.add_argument("--prompt_file", type=str, default=str(DEFAULT_PROMPT_FILE))
     parser.add_argument("--output", type=str, default=None)
-    parser.add_argument("--max_tokens", type=int, default=256)
+    parser.add_argument("--max_tokens", type=int, default=1024)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--concurrency", type=int, default=1)
     parser.add_argument("--sample_interval_sec", type=float, default=0.5)
