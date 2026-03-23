@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # ===== User Config =====
 # 直接改下面这些变量即可。
+# CUDA_VISIBLE_DEVICES=0 BATCH_SIZE=32 MODEL_TAG=bs32 bash vllm_14b_length_aware_v6_offline/bash/benchmark_14b_vllm.sh &
+# CUDA_VISIBLE_DEVICES=1 BATCH_SIZE=64 MODEL_TAG=bs64 bash vllm_14b_length_aware_v6_offline/bash/benchmark_14b_vllm.sh &
+# CUDA_VISIBLE_DEVICES=2 BATCH_SIZE=128 MODEL_TAG=bs128 bash vllm_14b_length_aware_v6_offline/bash/benchmark_14b_vllm.sh &
+
 MODEL_PATH="${MODEL_PATH:-/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct}"
 CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 MODEL_TAG="${MODEL_TAG:-14b_length_aware_v6_offline_bs8}"
@@ -8,7 +12,7 @@ PROMPT_FILE="${PROMPT_FILE:-}"
 PROMPT_LIMIT="${PROMPT_LIMIT:-0}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-1024}"
 TEMPERATURE="${TEMPERATURE:-0.0}"
-BATCH_SIZE="${BATCH_SIZE:-8}"
+BATCH_SIZE="${BATCH_SIZE:128}"
 TENSOR_PARALLEL_SIZE="${TENSOR_PARALLEL_SIZE:-1}"
 DTYPE="${DTYPE:-bfloat16}"
 LOAD_FORMAT="${LOAD_FORMAT:-auto}"
