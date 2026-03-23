@@ -1,0 +1,560 @@
+[INFO] 已加载 512 条 prompt（来自 vllm_serve_exp_122b_length_aware_v6/data/mixed_prompts_30s70l.jsonl）
+[INFO] 开始在线 benchmark | concurrency=256
+  [  1/512] ttft=   566.3 ms  latency=  7818.1 ms  output= 342 tokens
+  [  2/512] ttft=   864.6 ms  latency=  9848.1 ms  output= 438 tokens
+  [  3/512] ttft=   716.9 ms  latency= 11337.6 ms  output= 509 tokens
+  [  4/512] ttft=   718.0 ms  latency= 14450.3 ms  output= 654 tokens
+  [  5/512] ttft=   866.6 ms  latency= 15021.8 ms  output= 678 tokens
+  [  6/512] ttft=   714.1 ms  latency= 18688.0 ms  output= 852 tokens
+  [  7/512] ttft=   864.7 ms  latency= 18819.7 ms  output= 857 tokens
+  [  8/512] ttft=   712.5 ms  latency= 19560.9 ms  output= 890 tokens
+  [  9/512] ttft=   415.9 ms  latency= 19610.7 ms  output= 894 tokens
+  [ 10/512] ttft=   565.2 ms  latency= 19987.7 ms  output= 910 tokens
+  [ 11/512] ttft=   864.7 ms  latency= 20338.3 ms  output= 923 tokens
+  [ 12/512] ttft=   128.6 ms  latency= 22391.6 ms  output=1024 tokens
+  [ 13/512] ttft=   422.3 ms  latency= 22441.6 ms  output=1024 tokens
+  [ 14/512] ttft=   419.6 ms  latency= 22439.0 ms  output=1024 tokens
+  [ 15/512] ttft=   421.0 ms  latency= 22440.6 ms  output=1024 tokens
+  [ 16/512] ttft=   419.1 ms  latency= 22439.6 ms  output=1021 tokens
+  [ 17/512] ttft=   414.3 ms  latency= 22434.6 ms  output=1023 tokens
+  [ 18/512] ttft=   418.1 ms  latency= 22438.6 ms  output=1024 tokens
+  [ 19/512] ttft=   423.7 ms  latency= 22444.7 ms  output=1023 tokens
+  [ 20/512] ttft=   418.6 ms  latency= 22439.5 ms  output=1024 tokens
+  [ 21/512] ttft=   414.6 ms  latency= 22435.4 ms  output=1024 tokens
+  [ 22/512] ttft=   417.1 ms  latency= 22437.9 ms  output=1024 tokens
+  [ 23/512] ttft=   416.1 ms  latency= 22437.1 ms  output=1024 tokens
+  [ 24/512] ttft=   414.9 ms  latency= 22435.5 ms  output=1023 tokens
+  [ 25/512] ttft=   564.4 ms  latency= 22531.6 ms  output=1024 tokens
+  [ 26/512] ttft=   564.8 ms  latency= 22532.4 ms  output=1023 tokens
+  [ 27/512] ttft=   562.5 ms  latency= 22530.8 ms  output=1024 tokens
+  [ 28/512] ttft=   564.2 ms  latency= 22532.0 ms  output=1024 tokens
+  [ 29/512] ttft=   566.7 ms  latency= 22536.3 ms  output=1024 tokens
+  [ 30/512] ttft=   563.1 ms  latency= 22533.7 ms  output=1024 tokens
+  [ 31/512] ttft=   563.0 ms  latency= 22533.5 ms  output=1024 tokens
+  [ 32/512] ttft=   567.9 ms  latency= 22537.3 ms  output=1024 tokens
+  [ 33/512] ttft=   565.9 ms  latency= 22536.0 ms  output=1024 tokens
+  [ 34/512] ttft=   563.8 ms  latency= 22534.2 ms  output=1024 tokens
+  [ 35/512] ttft=   566.6 ms  latency= 22538.4 ms  output=1024 tokens
+  [ 36/512] ttft=   715.1 ms  latency= 22551.1 ms  output=1024 tokens
+  [ 37/512] ttft=   716.2 ms  latency= 22552.3 ms  output=1023 tokens
+  [ 38/512] ttft=   714.5 ms  latency= 22551.2 ms  output=1023 tokens
+  [ 39/512] ttft=   715.7 ms  latency= 22553.2 ms  output=1024 tokens
+  [ 40/512] ttft=   716.1 ms  latency= 22554.1 ms  output=1024 tokens
+  [ 41/512] ttft=   715.8 ms  latency= 22552.2 ms  output=1025 tokens
+  [ 42/512] ttft=   714.5 ms  latency= 22552.0 ms  output=1024 tokens
+  [ 43/512] ttft=   713.1 ms  latency= 22551.2 ms  output=1023 tokens
+  [ 44/512] ttft=   712.3 ms  latency= 22552.3 ms  output=1024 tokens
+  [ 45/512] ttft=   713.5 ms  latency= 22554.2 ms  output=1024 tokens
+  [ 46/512] ttft=   715.5 ms  latency= 22557.2 ms  output=1022 tokens
+  [ 47/512] ttft=   717.7 ms  latency= 22559.6 ms  output=1024 tokens
+  [ 48/512] ttft=   718.2 ms  latency= 22560.1 ms  output=1024 tokens
+  [ 49/512] ttft=   869.5 ms  latency= 22708.8 ms  output=1023 tokens
+  [ 50/512] ttft=   870.8 ms  latency= 22710.3 ms  output=1023 tokens
+  [ 51/512] ttft=   865.5 ms  latency= 22704.5 ms  output=1022 tokens
+  [ 52/512] ttft=   867.2 ms  latency= 22707.5 ms  output=1024 tokens
+  [ 53/512] ttft=   866.5 ms  latency= 22706.7 ms  output=1024 tokens
+  [ 54/512] ttft=   865.6 ms  latency= 22706.2 ms  output=1024 tokens
+  [ 55/512] ttft=   864.9 ms  latency= 22706.2 ms  output=1021 tokens
+  [ 56/512] ttft=   871.3 ms  latency= 22712.6 ms  output=1024 tokens
+  [ 57/512] ttft=   866.4 ms  latency= 22711.1 ms  output=1024 tokens
+  [ 58/512] ttft=   866.2 ms  latency= 22710.2 ms  output=1023 tokens
+  [ 59/512] ttft=   865.0 ms  latency= 22710.1 ms  output=1024 tokens
+  [ 60/512] ttft=   867.0 ms  latency= 22715.0 ms  output=1023 tokens
+  [ 61/512] ttft=   864.3 ms  latency= 22714.0 ms  output=1024 tokens
+  [ 62/512] ttft=   909.2 ms  latency= 22721.8 ms  output=1024 tokens
+  [ 63/512] ttft=   910.1 ms  latency= 22721.8 ms  output=1024 tokens
+  [ 64/512] ttft=   871.6 ms  latency= 22729.5 ms  output=1024 tokens
+  [ 65/512] ttft=  7876.1 ms  latency= 27782.8 ms  output= 913 tokens
+  [ 66/512] ttft= 23137.4 ms  latency= 30116.2 ms  output= 339 tokens
+  [ 67/512] ttft= 23136.7 ms  latency= 32064.5 ms  output= 429 tokens
+  [ 68/512] ttft=  9918.5 ms  latency= 32299.2 ms  output=1024 tokens
+  [ 69/512] ttft= 23137.5 ms  latency= 32626.7 ms  output= 451 tokens
+  [ 70/512] ttft= 22867.9 ms  latency= 33617.6 ms  output= 497 tokens
+  [ 71/512] ttft= 11441.2 ms  latency= 33926.8 ms  output=1024 tokens
+  [ 72/512] ttft= 19621.3 ms  latency= 35655.4 ms  output= 722 tokens
+  [ 73/512] ttft= 22699.5 ms  latency= 36896.3 ms  output= 648 tokens
+  [ 74/512] ttft= 14554.3 ms  latency= 37118.6 ms  output=1024 tokens
+  [ 75/512] ttft= 15091.2 ms  latency= 37694.2 ms  output=1024 tokens
+  [ 76/512] ttft= 22707.4 ms  latency= 40096.3 ms  output= 791 tokens
+  [ 77/512] ttft= 18752.0 ms  latency= 40389.1 ms  output= 972 tokens
+  [ 78/512] ttft= 18929.0 ms  latency= 41639.3 ms  output=1024 tokens
+  [ 79/512] ttft= 22989.7 ms  latency= 41650.7 ms  output= 858 tokens
+  [ 80/512] ttft= 19675.8 ms  latency= 42464.1 ms  output=1024 tokens
+  [ 81/512] ttft= 20081.0 ms  latency= 42867.3 ms  output=1024 tokens
+  [ 82/512] ttft= 20444.9 ms  latency= 43239.0 ms  output=1025 tokens
+  [ 83/512] ttft= 23139.7 ms  latency= 45075.7 ms  output=1008 tokens
+  [ 84/512] ttft= 22511.6 ms  latency= 45333.1 ms  output=1024 tokens
+  [ 85/512] ttft= 22698.2 ms  latency= 45375.9 ms  output=1023 tokens
+  [ 86/512] ttft= 22695.8 ms  latency= 45374.8 ms  output=1023 tokens
+  [ 87/512] ttft= 22698.7 ms  latency= 45374.7 ms  output=1023 tokens
+  [ 88/512] ttft= 22697.2 ms  latency= 45376.4 ms  output=1023 tokens
+  [ 89/512] ttft= 22695.8 ms  latency= 45375.0 ms  output=1024 tokens
+  [ 90/512] ttft= 22697.5 ms  latency= 45377.4 ms  output=1024 tokens
+  [ 91/512] ttft= 22698.0 ms  latency= 45377.5 ms  output=1024 tokens
+  [ 92/512] ttft= 22693.9 ms  latency= 45374.2 ms  output=1024 tokens
+  [ 93/512] ttft= 22701.5 ms  latency= 45378.4 ms  output=1025 tokens
+  [ 94/512] ttft= 22698.9 ms  latency= 45376.6 ms  output=1024 tokens
+  [ 95/512] ttft= 22699.4 ms  latency= 45382.6 ms  output=1024 tokens
+  [ 96/512] ttft= 22865.2 ms  latency= 45420.4 ms  output=1024 tokens
+  [ 97/512] ttft= 22864.1 ms  latency= 45420.4 ms  output=1023 tokens
+  [ 98/512] ttft= 22863.8 ms  latency= 45419.4 ms  output=1024 tokens
+  [ 99/512] ttft= 22864.9 ms  latency= 45421.2 ms  output=1024 tokens
+  [100/512] ttft= 22866.6 ms  latency= 45422.8 ms  output=1023 tokens
+  [101/512] ttft= 22865.8 ms  latency= 45424.7 ms  output=1023 tokens
+  [102/512] ttft= 22863.6 ms  latency= 45424.1 ms  output=1024 tokens
+  [103/512] ttft= 22866.1 ms  latency= 45426.6 ms  output=1024 tokens
+  [104/512] ttft= 22864.2 ms  latency= 45423.8 ms  output=1024 tokens
+  [105/512] ttft= 22865.1 ms  latency= 45425.9 ms  output=1024 tokens
+  [106/512] ttft= 22865.4 ms  latency= 45425.5 ms  output=1024 tokens
+  [107/512] ttft= 22864.2 ms  latency= 45424.7 ms  output=1023 tokens
+  [108/512] ttft= 22989.1 ms  latency= 45507.3 ms  output=1024 tokens
+  [109/512] ttft= 22989.7 ms  latency= 45508.2 ms  output=1024 tokens
+  [110/512] ttft= 22991.2 ms  latency= 45509.4 ms  output=1024 tokens
+  [111/512] ttft= 22990.9 ms  latency= 45509.8 ms  output=1024 tokens
+  [112/512] ttft= 22991.3 ms  latency= 45509.3 ms  output=1024 tokens
+  [113/512] ttft= 22989.1 ms  latency= 45507.9 ms  output=1022 tokens
+  [114/512] ttft= 22989.0 ms  latency= 45508.3 ms  output=1024 tokens
+  [115/512] ttft= 22988.0 ms  latency= 45507.8 ms  output=1024 tokens
+  [116/512] ttft= 22990.0 ms  latency= 45508.9 ms  output=1024 tokens
+  [117/512] ttft= 23139.5 ms  latency= 45600.1 ms  output=1025 tokens
+  [118/512] ttft= 23139.4 ms  latency= 45600.7 ms  output=1024 tokens
+  [119/512] ttft= 23138.3 ms  latency= 45600.7 ms  output=1024 tokens
+  [120/512] ttft= 23139.2 ms  latency= 45602.6 ms  output=1024 tokens
+  [121/512] ttft= 23139.7 ms  latency= 45603.1 ms  output=1025 tokens
+  [122/512] ttft= 23140.8 ms  latency= 45604.4 ms  output=1024 tokens
+  [123/512] ttft= 23137.8 ms  latency= 45602.9 ms  output=1024 tokens
+  [124/512] ttft= 23138.7 ms  latency= 45603.6 ms  output=1024 tokens
+  [125/512] ttft= 23138.5 ms  latency= 45602.9 ms  output=1024 tokens
+  [126/512] ttft= 23139.2 ms  latency= 45605.2 ms  output=1024 tokens
+  [127/512] ttft= 23140.4 ms  latency= 45610.9 ms  output=1023 tokens
+  [128/512] ttft= 23139.3 ms  latency= 45611.6 ms  output=1024 tokens
+  [129/512] ttft= 27880.8 ms  latency= 50687.6 ms  output=1024 tokens
+  [130/512] ttft= 45964.4 ms  latency= 50952.8 ms  output= 243 tokens
+  [131/512] ttft= 45740.4 ms  latency= 51321.7 ms  output= 262 tokens
+  [132/512] ttft= 30228.7 ms  latency= 53020.2 ms  output=1024 tokens
+  [133/512] ttft= 32175.2 ms  latency= 54945.6 ms  output=1025 tokens
+  [134/512] ttft= 32390.5 ms  latency= 55167.7 ms  output=1024 tokens
+  [135/512] ttft= 32733.9 ms  latency= 55512.0 ms  output=1024 tokens
+  [136/512] ttft= 45961.3 ms  latency= 55515.9 ms  output= 452 tokens
+  [137/512] ttft= 45960.8 ms  latency= 55536.7 ms  output= 453 tokens
+  [138/512] ttft= 33713.6 ms  latency= 56609.6 ms  output=1024 tokens
+  [139/512] ttft= 34016.4 ms  latency= 56875.6 ms  output=1024 tokens
+  [140/512] ttft= 45496.1 ms  latency= 57807.4 ms  output= 553 tokens
+  [141/512] ttft= 45742.3 ms  latency= 58487.1 ms  output= 581 tokens
+  [142/512] ttft= 35749.8 ms  latency= 58709.8 ms  output=1024 tokens
+  [143/512] ttft= 36990.6 ms  latency= 59920.3 ms  output=1024 tokens
+  [144/512] ttft= 37208.8 ms  latency= 60136.9 ms  output=1016 tokens
+  [145/512] ttft= 37782.6 ms  latency= 60669.6 ms  output=1024 tokens
+  [146/512] ttft= 45962.0 ms  latency= 61757.8 ms  output= 729 tokens
+  [147/512] ttft= 45848.2 ms  latency= 62023.5 ms  output= 740 tokens
+  [148/512] ttft= 45590.6 ms  latency= 62799.4 ms  output= 776 tokens
+  [149/512] ttft= 40196.8 ms  latency= 63126.4 ms  output=1024 tokens
+  [150/512] ttft= 40481.1 ms  latency= 63368.6 ms  output=1024 tokens
+  [151/512] ttft= 41729.6 ms  latency= 64616.4 ms  output=1019 tokens
+  [152/512] ttft= 41816.9 ms  latency= 64638.9 ms  output=1024 tokens
+  [153/512] ttft= 42553.3 ms  latency= 65394.6 ms  output=1024 tokens
+  [154/512] ttft= 45494.6 ms  latency= 65545.1 ms  output= 899 tokens
+  [155/512] ttft= 45495.5 ms  latency= 65708.0 ms  output= 906 tokens
+  [156/512] ttft= 42965.1 ms  latency= 65863.7 ms  output=1024 tokens
+  [157/512] ttft= 43327.7 ms  latency= 66188.3 ms  output=1024 tokens
+  [158/512] ttft= 45961.7 ms  latency= 66932.6 ms  output= 956 tokens
+  [159/512] ttft= 45844.8 ms  latency= 67873.1 ms  output= 999 tokens
+  [160/512] ttft= 51022.4 ms  latency= 68022.3 ms  output= 757 tokens
+  [161/512] ttft= 45186.9 ms  latency= 68188.7 ms  output=1024 tokens
+  [162/512] ttft= 45387.9 ms  latency= 68389.8 ms  output=1024 tokens
+  [163/512] ttft= 45497.0 ms  latency= 68433.7 ms  output=1024 tokens
+  [164/512] ttft= 45495.2 ms  latency= 68433.2 ms  output=1024 tokens
+  [165/512] ttft= 45497.1 ms  latency= 68434.8 ms  output=1024 tokens
+  [166/512] ttft= 45495.7 ms  latency= 68433.4 ms  output=1024 tokens
+  [167/512] ttft= 45497.3 ms  latency= 68434.1 ms  output=1024 tokens
+  [168/512] ttft= 45589.3 ms  latency= 68507.0 ms  output=1024 tokens
+  [169/512] ttft= 45592.5 ms  latency= 68507.8 ms  output=1024 tokens
+  [170/512] ttft= 45741.5 ms  latency= 68530.4 ms  output=1024 tokens
+  [171/512] ttft= 45741.4 ms  latency= 68529.8 ms  output=1023 tokens
+  [172/512] ttft= 45741.2 ms  latency= 68530.6 ms  output=1024 tokens
+  [173/512] ttft= 45742.2 ms  latency= 68530.8 ms  output=1023 tokens
+  [174/512] ttft= 45740.2 ms  latency= 68530.6 ms  output=1024 tokens
+  [175/512] ttft= 45742.7 ms  latency= 68532.0 ms  output=1024 tokens
+  [176/512] ttft= 45740.5 ms  latency= 68529.9 ms  output=1024 tokens
+  [177/512] ttft= 45739.0 ms  latency= 68529.4 ms  output=1024 tokens
+  [178/512] ttft= 45739.9 ms  latency= 68530.0 ms  output=1021 tokens
+  [179/512] ttft= 45741.0 ms  latency= 68530.3 ms  output=1024 tokens
+  [180/512] ttft= 45849.3 ms  latency= 68617.8 ms  output=1024 tokens
+  [181/512] ttft= 45848.4 ms  latency= 68617.9 ms  output=1024 tokens
+  [182/512] ttft= 45845.2 ms  latency= 68616.9 ms  output=1024 tokens
+  [183/512] ttft= 45846.6 ms  latency= 68617.8 ms  output=1024 tokens
+  [184/512] ttft= 45845.7 ms  latency= 68617.4 ms  output=1024 tokens
+  [185/512] ttft= 45845.3 ms  latency= 68618.0 ms  output=1023 tokens
+  [186/512] ttft= 45844.7 ms  latency= 68616.8 ms  output=1024 tokens
+  [187/512] ttft= 45963.3 ms  latency= 68696.6 ms  output=1024 tokens
+  [188/512] ttft= 45963.2 ms  latency= 68697.4 ms  output=1023 tokens
+  [189/512] ttft= 45963.2 ms  latency= 68696.7 ms  output=1022 tokens
+  [190/512] ttft= 45962.1 ms  latency= 68696.4 ms  output=1024 tokens
+  [191/512] ttft= 45964.6 ms  latency= 68699.1 ms  output=1023 tokens
+  [192/512] ttft= 45963.9 ms  latency= 68698.3 ms  output=1024 tokens
+  [193/512] ttft= 45962.1 ms  latency= 68698.9 ms  output=1024 tokens
+  [194/512] ttft= 50741.0 ms  latency= 72596.6 ms  output= 968 tokens
+  [195/512] ttft= 65915.7 ms  latency= 73777.1 ms  output= 345 tokens
+  [196/512] ttft= 51423.8 ms  latency= 74487.4 ms  output=1023 tokens
+  [197/512] ttft= 53110.5 ms  latency= 76144.9 ms  output=1024 tokens
+  [198/512] ttft= 55042.0 ms  latency= 78080.6 ms  output=1024 tokens
+  [199/512] ttft= 55258.1 ms  latency= 78301.1 ms  output=1023 tokens
+  [200/512] ttft= 55601.5 ms  latency= 78608.3 ms  output=1023 tokens
+  [201/512] ttft= 55691.1 ms  latency= 78629.6 ms  output=1024 tokens
+  [202/512] ttft= 55776.7 ms  latency= 78650.4 ms  output=1024 tokens
+  [203/512] ttft= 56664.7 ms  latency= 79711.3 ms  output=1024 tokens
+  [204/512] ttft= 56965.2 ms  latency= 80016.7 ms  output=1024 tokens
+  [205/512] ttft= 68982.4 ms  latency= 80021.2 ms  output= 508 tokens
+  [206/512] ttft= 57901.0 ms  latency= 81015.0 ms  output=1024 tokens
+  [207/512] ttft= 58763.6 ms  latency= 81692.9 ms  output=1015 tokens
+  [208/512] ttft= 58582.7 ms  latency= 81694.5 ms  output=1024 tokens
+  [209/512] ttft= 64670.3 ms  latency= 82557.5 ms  output= 784 tokens
+  [210/512] ttft= 60190.5 ms  latency= 82798.5 ms  output= 997 tokens
+  [211/512] ttft= 68598.1 ms  latency= 82950.7 ms  output= 637 tokens
+  [212/512] ttft= 60008.1 ms  latency= 83238.3 ms  output=1024 tokens
+  [213/512] ttft= 60723.8 ms  latency= 83973.4 ms  output=1025 tokens
+  [214/512] ttft= 65602.0 ms  latency= 84084.1 ms  output= 808 tokens
+  [215/512] ttft= 62852.8 ms  latency= 84716.5 ms  output= 957 tokens
+  [216/512] ttft= 68684.0 ms  latency= 84821.9 ms  output= 714 tokens
+  [217/512] ttft= 61862.4 ms  latency= 85221.5 ms  output=1023 tokens
+  [218/512] ttft= 62120.4 ms  latency= 85440.3 ms  output=1024 tokens
+  [219/512] ttft= 63179.2 ms  latency= 86509.5 ms  output=1024 tokens
+  [220/512] ttft= 63457.2 ms  latency= 86790.7 ms  output=1024 tokens
+  [221/512] ttft= 68982.2 ms  latency= 87481.6 ms  output= 832 tokens
+  [222/512] ttft= 64731.5 ms  latency= 88035.5 ms  output=1024 tokens
+  [223/512] ttft= 59592.4 ms  latency= 69497.2 ms  output= 426 tokens
+  [224/512] ttft= 65481.2 ms  latency= 88836.9 ms  output=1024 tokens
+  [225/512] ttft= 65797.9 ms  latency= 89139.7 ms  output=1024 tokens
+  [226/512] ttft= 66277.9 ms  latency= 89610.8 ms  output=1023 tokens
+  [227/512] ttft= 68811.7 ms  latency= 89822.0 ms  output= 932 tokens
+  [228/512] ttft= 68811.2 ms  latency= 89956.1 ms  output= 936 tokens
+  [229/512] ttft= 67033.0 ms  latency= 90434.1 ms  output=1017 tokens
+  [230/512] ttft= 68599.6 ms  latency= 91286.9 ms  output= 998 tokens
+  [231/512] ttft= 67970.0 ms  latency= 91385.6 ms  output=1024 tokens
+  [232/512] ttft= 68122.6 ms  latency= 91537.9 ms  output=1024 tokens
+  [233/512] ttft= 68240.5 ms  latency= 91656.1 ms  output=1025 tokens
+  [234/512] ttft= 68899.1 ms  latency= 91825.4 ms  output=1017 tokens
+  [235/512] ttft= 68485.8 ms  latency= 91855.7 ms  output=1024 tokens
+  [236/512] ttft= 68598.6 ms  latency= 91910.7 ms  output=1024 tokens
+  [237/512] ttft= 68599.1 ms  latency= 91910.9 ms  output=1025 tokens
+  [238/512] ttft= 68600.1 ms  latency= 91912.2 ms  output=1024 tokens
+  [239/512] ttft= 68682.3 ms  latency= 91942.0 ms  output=1026 tokens
+  [240/512] ttft= 68808.8 ms  latency= 91962.6 ms  output=1024 tokens
+  [241/512] ttft= 68810.3 ms  latency= 91964.2 ms  output=1022 tokens
+  [242/512] ttft= 68809.3 ms  latency= 91964.0 ms  output=1024 tokens
+  [243/512] ttft= 68808.6 ms  latency= 91963.8 ms  output=1024 tokens
+  [244/512] ttft= 68810.6 ms  latency= 91965.9 ms  output=1024 tokens
+  [245/512] ttft= 68809.7 ms  latency= 91967.4 ms  output=1024 tokens
+  [246/512] ttft= 68808.8 ms  latency= 91966.9 ms  output=1024 tokens
+  [247/512] ttft= 68810.5 ms  latency= 91967.8 ms  output=1024 tokens
+  [248/512] ttft= 68900.9 ms  latency= 92036.4 ms  output=1024 tokens
+  [249/512] ttft= 68899.7 ms  latency= 92036.4 ms  output=1024 tokens
+  [250/512] ttft= 68903.5 ms  latency= 92042.4 ms  output=1024 tokens
+  [251/512] ttft= 68898.6 ms  latency= 92038.1 ms  output=1025 tokens
+  [252/512] ttft= 68901.7 ms  latency= 92043.0 ms  output=1024 tokens
+  [253/512] ttft= 68903.9 ms  latency= 92045.7 ms  output=1024 tokens
+  [254/512] ttft= 68982.4 ms  latency= 92118.4 ms  output=1022 tokens
+  [255/512] ttft= 68982.6 ms  latency= 92118.8 ms  output=1023 tokens
+  [256/512] ttft= 61233.9 ms  latency= 84371.9 ms  output=1023 tokens
+  [257/512] ttft= 68981.9 ms  latency= 92120.4 ms  output=1024 tokens
+  [258/512] ttft= 68982.2 ms  latency= 92120.8 ms  output=1022 tokens
+  [259/512] ttft= 62897.9 ms  latency= 86262.1 ms  output=1024 tokens
+  [260/512] ttft= 62606.0 ms  latency= 85975.0 ms  output=1024 tokens
+  [261/512] ttft= 60158.7 ms  latency= 83563.5 ms  output=1025 tokens
+  [262/512] ttft= 65090.7 ms  latency= 75635.7 ms  output= 456 tokens
+  [263/512] ttft= 69113.8 ms  latency= 75634.0 ms  output= 286 tokens
+  [264/512] ttft= 69543.9 ms  latency= 76372.5 ms  output= 300 tokens
+  [265/512] ttft= 61273.0 ms  latency= 84862.3 ms  output=1024 tokens
+  [266/512] ttft= 59548.6 ms  latency= 83123.0 ms  output=1024 tokens
+  [267/512] ttft= 59202.3 ms  latency= 82763.4 ms  output=1024 tokens
+  [268/512] ttft= 59250.1 ms  latency= 82746.9 ms  output=1023 tokens
+  [269/512] ttft= 58956.1 ms  latency= 82388.4 ms  output=1022 tokens
+  [270/512] ttft= 64387.2 ms  latency= 80044.0 ms  output= 681 tokens
+  [271/512] ttft= 69666.2 ms  latency= 80454.6 ms  output= 486 tokens
+  [272/512] ttft= 59529.2 ms  latency= 83082.8 ms  output=1024 tokens
+  [273/512] ttft= 57794.0 ms  latency= 81346.2 ms  output=1024 tokens
+  [274/512] ttft= 57835.6 ms  latency= 81323.1 ms  output=1024 tokens
+  [275/512] ttft= 69665.1 ms  latency= 81158.9 ms  output= 514 tokens
+  [276/512] ttft= 58751.2 ms  latency= 82243.1 ms  output=1024 tokens
+  [277/512] ttft= 59446.8 ms  latency= 82883.1 ms  output=1024 tokens
+  [278/512] ttft= 59446.7 ms  latency= 82883.0 ms  output=1024 tokens
+  [279/512] ttft= 62817.5 ms  latency= 83177.9 ms  output= 889 tokens
+  [280/512] ttft= 62525.0 ms  latency= 83427.0 ms  output= 912 tokens
+  [281/512] ttft= 69578.6 ms  latency= 83347.8 ms  output= 605 tokens
+  [282/512] ttft= 60290.9 ms  latency= 83847.0 ms  output=1023 tokens
+  [283/512] ttft= 60492.3 ms  latency= 84045.9 ms  output=1023 tokens
+  [284/512] ttft= 60687.2 ms  latency= 84239.5 ms  output=1024 tokens
+  [285/512] ttft= 60967.8 ms  latency= 84517.8 ms  output=1024 tokens
+  [286/512] ttft= 61706.5 ms  latency= 85247.9 ms  output=1024 tokens
+  [287/512] ttft= 61815.6 ms  latency= 85356.8 ms  output=1024 tokens
+  [288/512] ttft= 62447.3 ms  latency= 85987.0 ms  output=1024 tokens
+  [289/512] ttft= 69442.5 ms  latency= 86101.0 ms  output= 723 tokens
+  [290/512] ttft= 63071.2 ms  latency= 86595.8 ms  output=1023 tokens
+  [291/512] ttft= 69664.5 ms  latency= 86911.2 ms  output= 762 tokens
+  [292/512] ttft= 69577.5 ms  latency= 87075.9 ms  output= 770 tokens
+  [293/512] ttft= 64142.5 ms  latency= 87726.9 ms  output=1024 tokens
+  [294/512] ttft= 65669.8 ms  latency= 89203.8 ms  output=1024 tokens
+  [295/512] ttft= 65904.6 ms  latency= 89442.7 ms  output=1024 tokens
+  [296/512] ttft= 66468.6 ms  latency= 89967.8 ms  output=1024 tokens
+  [297/512] ttft= 66771.9 ms  latency= 90269.9 ms  output=1024 tokens
+  [298/512] ttft= 69231.2 ms  latency= 90577.7 ms  output= 932 tokens
+  [299/512] ttft= 67240.4 ms  latency= 90753.0 ms  output=1024 tokens
+  [300/512] ttft= 67457.2 ms  latency= 90932.0 ms  output=1023 tokens
+  [301/512] ttft= 67534.1 ms  latency= 91008.5 ms  output=1024 tokens
+  [302/512] ttft= 68044.9 ms  latency= 91483.6 ms  output=1024 tokens
+  [303/512] ttft= 68864.5 ms  latency= 92329.8 ms  output=1024 tokens
+  [304/512] ttft= 69575.8 ms  latency= 92301.0 ms  output=1000 tokens
+  [305/512] ttft= 68994.5 ms  latency= 92463.4 ms  output=1024 tokens
+  [306/512] ttft= 69413.1 ms  latency= 92886.9 ms  output=1024 tokens
+  [307/512] ttft= 69543.6 ms  latency= 92993.9 ms  output=1024 tokens
+  [308/512] ttft= 69544.3 ms  latency= 92995.7 ms  output=1024 tokens
+  [309/512] ttft= 69624.5 ms  latency= 93014.1 ms  output=1024 tokens
+  [310/512] ttft= 69576.4 ms  latency= 92876.7 ms  output=1024 tokens
+  [311/512] ttft= 69733.6 ms  latency= 93035.5 ms  output=1024 tokens
+  [312/512] ttft= 69575.6 ms  latency= 92877.3 ms  output=1024 tokens
+  [313/512] ttft= 69575.9 ms  latency= 92879.4 ms  output=1024 tokens
+  [314/512] ttft= 69576.6 ms  latency= 92879.7 ms  output=1024 tokens
+  [315/512] ttft= 69664.5 ms  latency= 92952.3 ms  output=1024 tokens
+  [316/512] ttft= 69659.9 ms  latency= 92947.6 ms  output=1023 tokens
+  [317/512] ttft= 69662.3 ms  latency= 92949.2 ms  output=1024 tokens
+  [318/512] ttft= 69760.5 ms  latency= 93033.7 ms  output=1024 tokens
+  [319/512] ttft= 69759.2 ms  latency= 93033.2 ms  output=1024 tokens
+  [320/512] ttft= 69759.3 ms  latency= 93033.7 ms  output=1024 tokens
+  [321/512] ttft= 64698.1 ms  latency= 87975.3 ms  output=1024 tokens
+  [322/512] ttft= 62349.0 ms  latency= 85625.2 ms  output=1024 tokens
+  [323/512] ttft= 63054.9 ms  latency= 82217.4 ms  output= 831 tokens
+  [324/512] ttft= 64141.1 ms  latency= 87633.3 ms  output=1027 tokens
+  [325/512] ttft= 65109.9 ms  latency= 88563.1 ms  output=1024 tokens
+  [326/512] ttft= 65469.2 ms  latency= 88927.2 ms  output=1022 tokens
+  [327/512] ttft= 64639.1 ms  latency= 88098.3 ms  output=1024 tokens
+  [328/512] ttft= 64421.7 ms  latency= 87818.0 ms  output=1024 tokens
+  [329/512] ttft= 63375.0 ms  latency= 86832.5 ms  output=1024 tokens
+  [330/512] ttft= 64260.5 ms  latency= 78809.2 ms  output= 639 tokens
+  [331/512] ttft= 64695.4 ms  latency= 87123.5 ms  output= 973 tokens
+  [332/512] ttft= 64791.7 ms  latency= 88346.9 ms  output=1024 tokens
+  [333/512] ttft= 68005.7 ms  latency= 80082.0 ms  output= 528 tokens
+  [334/512] ttft= 62347.1 ms  latency= 85905.2 ms  output=1024 tokens
+  [335/512] ttft= 62146.8 ms  latency= 85642.6 ms  output=1024 tokens
+  [336/512] ttft= 60994.0 ms  latency= 84616.2 ms  output=1025 tokens
+  [337/512] ttft= 61609.7 ms  latency= 85234.2 ms  output=1024 tokens
+  [338/512] ttft= 61062.1 ms  latency= 84691.6 ms  output=1024 tokens
+  [339/512] ttft= 60921.0 ms  latency= 84587.1 ms  output=1024 tokens
+  [340/512] ttft= 60581.4 ms  latency= 84236.4 ms  output=1024 tokens
+  [341/512] ttft= 58884.5 ms  latency= 82545.5 ms  output=1024 tokens
+  [342/512] ttft= 59398.3 ms  latency= 83081.4 ms  output=1024 tokens
+  [343/512] ttft= 60039.7 ms  latency= 83725.5 ms  output=1023 tokens
+  [344/512] ttft= 60039.7 ms  latency= 83726.9 ms  output=1025 tokens
+  [345/512] ttft= 60421.6 ms  latency= 84128.2 ms  output=1024 tokens
+  [346/512] ttft= 60539.3 ms  latency= 84281.1 ms  output=1023 tokens
+  [347/512] ttft= 60777.7 ms  latency= 84516.7 ms  output=1024 tokens
+  [348/512] ttft= 60956.1 ms  latency= 84731.5 ms  output=1024 tokens
+  [349/512] ttft= 61190.6 ms  latency= 84972.5 ms  output=1024 tokens
+  [350/512] ttft= 61383.9 ms  latency= 85131.2 ms  output=1024 tokens
+  [351/512] ttft= 61658.5 ms  latency= 85411.5 ms  output=1024 tokens
+  [352/512] ttft= 62392.7 ms  latency= 86118.2 ms  output=1024 tokens
+  [353/512] ttft= 62501.1 ms  latency= 86226.1 ms  output=1023 tokens
+  [354/512] ttft= 63087.3 ms  latency= 86819.9 ms  output=1024 tokens
+  [355/512] ttft= 63287.4 ms  latency= 87055.5 ms  output=1024 tokens
+  [356/512] ttft= 63792.1 ms  latency= 87567.7 ms  output=1024 tokens
+  [357/512] ttft= 64453.2 ms  latency= 88232.2 ms  output=1024 tokens
+  [358/512] ttft= 64884.4 ms  latency= 88704.7 ms  output=1025 tokens
+  [359/512] ttft= 66399.1 ms  latency= 90221.9 ms  output=1024 tokens
+  [360/512] ttft= 66604.3 ms  latency= 90458.6 ms  output=1024 tokens
+  [361/512] ttft= 67161.1 ms  latency= 90983.3 ms  output=1024 tokens
+  [362/512] ttft= 67431.1 ms  latency= 91284.5 ms  output=1024 tokens
+  [363/512] ttft= 67794.1 ms  latency= 91647.4 ms  output=1024 tokens
+  [364/512] ttft= 67912.9 ms  latency= 91800.9 ms  output=1024 tokens
+  [365/512] ttft= 68102.2 ms  latency= 92015.0 ms  output=1024 tokens
+  [366/512] ttft= 70135.5 ms  latency= 92251.0 ms  output= 947 tokens
+  [367/512] ttft= 68612.6 ms  latency= 92539.6 ms  output=1024 tokens
+  [368/512] ttft= 70233.9 ms  latency= 92680.2 ms  output= 967 tokens
+  [369/512] ttft= 66751.7 ms  latency= 85455.1 ms  output= 798 tokens
+  [370/512] ttft= 69459.4 ms  latency= 93482.4 ms  output=1024 tokens
+  [371/512] ttft= 69591.6 ms  latency= 93616.6 ms  output=1024 tokens
+  [372/512] ttft= 69592.2 ms  latency= 93617.9 ms  output=1023 tokens
+  [373/512] ttft= 70015.9 ms  latency= 94044.5 ms  output=1024 tokens
+  [374/512] ttft= 70135.6 ms  latency= 94120.3 ms  output=1024 tokens
+  [375/512] ttft= 70140.5 ms  latency= 94048.8 ms  output=1024 tokens
+  [376/512] ttft= 70232.9 ms  latency= 94065.9 ms  output=1024 tokens
+  [377/512] ttft= 70237.0 ms  latency= 94070.6 ms  output=1024 tokens
+  [378/512] ttft= 70234.3 ms  latency= 94068.1 ms  output=1022 tokens
+  [379/512] ttft= 70232.7 ms  latency= 94067.7 ms  output=1025 tokens
+  [380/512] ttft= 70329.7 ms  latency= 94135.0 ms  output=1024 tokens
+  [381/512] ttft= 70329.2 ms  latency= 94135.7 ms  output=1024 tokens
+  [382/512] ttft= 70329.6 ms  latency= 94135.5 ms  output=1024 tokens
+  [383/512] ttft= 70440.3 ms  latency= 94164.9 ms  output=1024 tokens
+  [384/512] ttft= 65355.0 ms  latency= 89080.8 ms  output=1022 tokens
+  [385/512] ttft= 70434.2 ms  latency= 94160.7 ms  output=1023 tokens
+  [386/512] ttft= 70436.9 ms  latency= 94162.9 ms  output=1024 tokens
+  [387/512] ttft= 65075.6 ms  latency= 88803.0 ms  output=1024 tokens
+  [388/512] ttft= 67844.1 ms  latency= 91789.1 ms  output=1025 tokens
+  [389/512] ttft= 66009.9 ms  latency= 89938.9 ms  output=1024 tokens
+  [390/512] ttft= 64218.8 ms  latency= 79022.8 ms  output= 641 tokens
+  [391/512] ttft= 66492.0 ms  latency= 90435.9 ms  output=1024 tokens
+  [392/512] ttft= 66300.0 ms  latency= 90207.0 ms  output=1024 tokens
+  [393/512] ttft= 66366.0 ms  latency= 90211.3 ms  output=1024 tokens
+  [394/512] ttft= 67026.9 ms  latency= 90875.5 ms  output=1024 tokens
+  [395/512] ttft= 67722.8 ms  latency= 91514.7 ms  output=1024 tokens
+  [396/512] ttft= 67708.9 ms  latency= 90681.2 ms  output= 987 tokens
+  [397/512] ttft= 68034.6 ms  latency= 91836.7 ms  output=1024 tokens
+  [398/512] ttft= 67200.6 ms  latency= 90986.1 ms  output=1024 tokens
+  [399/512] ttft= 67417.3 ms  latency= 91172.2 ms  output=1024 tokens
+  [400/512] ttft= 66292.2 ms  latency= 89983.1 ms  output=1024 tokens
+  [401/512] ttft= 66210.0 ms  latency= 89964.1 ms  output=1024 tokens
+  [402/512] ttft= 66315.4 ms  latency= 90068.4 ms  output=1022 tokens
+  [403/512] ttft= 65472.6 ms  latency= 89223.6 ms  output=1024 tokens
+  [404/512] ttft= 65478.4 ms  latency= 89262.2 ms  output=1024 tokens
+  [405/512] ttft= 64768.7 ms  latency= 88515.2 ms  output=1024 tokens
+  [406/512] ttft= 64562.3 ms  latency= 88411.2 ms  output=1024 tokens
+  [407/512] ttft= 65139.4 ms  latency= 88932.7 ms  output=1024 tokens
+  [408/512] ttft= 67356.2 ms  latency= 74004.3 ms  output= 287 tokens
+  [409/512] ttft= 64588.0 ms  latency= 88378.9 ms  output=1022 tokens
+  [410/512] ttft= 64565.1 ms  latency= 88356.7 ms  output=1024 tokens
+  [411/512] ttft= 64201.7 ms  latency= 88004.1 ms  output=1024 tokens
+  [412/512] ttft= 64202.0 ms  latency= 87967.2 ms  output=1023 tokens
+  [413/512] ttft= 64274.1 ms  latency= 88043.5 ms  output=1024 tokens
+  [414/512] ttft= 64338.0 ms  latency= 88070.7 ms  output=1024 tokens
+  [415/512] ttft= 63654.4 ms  latency= 87334.1 ms  output=1024 tokens
+  [416/512] ttft= 62963.3 ms  latency= 86639.5 ms  output=1024 tokens
+  [417/512] ttft= 63551.9 ms  latency= 87228.9 ms  output=1024 tokens
+  [418/512] ttft= 63508.5 ms  latency= 87187.3 ms  output=1023 tokens
+  [419/512] ttft= 63946.6 ms  latency= 87621.2 ms  output=1024 tokens
+  [420/512] ttft= 64137.4 ms  latency= 87814.3 ms  output=1024 tokens
+  [421/512] ttft= 64651.2 ms  latency= 88324.7 ms  output=1024 tokens
+  [422/512] ttft= 65314.9 ms  latency= 88973.0 ms  output=1024 tokens
+  [423/512] ttft= 70993.4 ms  latency= 89081.0 ms  output= 787 tokens
+  [424/512] ttft= 65788.8 ms  latency= 89487.7 ms  output=1023 tokens
+  [425/512] ttft= 67307.1 ms  latency= 90936.1 ms  output=1024 tokens
+  [426/512] ttft= 67437.3 ms  latency= 91063.7 ms  output=1024 tokens
+  [427/512] ttft= 67993.4 ms  latency= 91610.8 ms  output=1024 tokens
+  [428/512] ttft= 67609.8 ms  latency= 75489.2 ms  output= 345 tokens
+  [429/512] ttft= 68271.2 ms  latency= 91898.6 ms  output=1024 tokens
+  [430/512] ttft= 68634.0 ms  latency= 92259.1 ms  output=1024 tokens
+  [431/512] ttft= 68787.8 ms  latency= 92411.6 ms  output=1025 tokens
+  [432/512] ttft= 65951.4 ms  latency= 73068.7 ms  output= 310 tokens
+  [433/512] ttft= 69087.2 ms  latency= 92722.3 ms  output=1024 tokens
+  [434/512] ttft= 69289.2 ms  latency= 92958.2 ms  output=1024 tokens
+  [435/512] ttft= 69610.6 ms  latency= 93242.9 ms  output=1024 tokens
+  [436/512] ttft= 69849.2 ms  latency= 93439.4 ms  output=1024 tokens
+  [437/512] ttft= 70043.8 ms  latency= 93596.9 ms  output=1022 tokens
+  [438/512] ttft= 70554.1 ms  latency= 94103.1 ms  output=1024 tokens
+  [439/512] ttft= 70688.7 ms  latency= 94237.0 ms  output=1024 tokens
+  [440/512] ttft= 70600.9 ms  latency= 94149.8 ms  output=1024 tokens
+  [441/512] ttft= 71104.8 ms  latency= 94638.6 ms  output=1024 tokens
+  [442/512] ttft= 71136.2 ms  latency= 94661.3 ms  output=1024 tokens
+  [443/512] ttft= 71230.8 ms  latency= 94679.6 ms  output=1024 tokens
+  [444/512] ttft= 71232.0 ms  latency= 94681.8 ms  output=1024 tokens
+  [445/512] ttft= 71231.2 ms  latency= 94681.9 ms  output=1024 tokens
+  [446/512] ttft= 71150.2 ms  latency= 94601.2 ms  output=1024 tokens
+  [447/512] ttft= 71247.0 ms  latency= 94671.8 ms  output=1024 tokens
+  [448/512] ttft= 71245.3 ms  latency= 94671.7 ms  output=1024 tokens
+  [449/512] ttft= 71244.0 ms  latency= 94671.4 ms  output=1024 tokens
+  [450/512] ttft= 67449.0 ms  latency= 90853.4 ms  output=1024 tokens
+  [451/512] ttft= 71349.4 ms  latency= 94755.9 ms  output=1024 tokens
+  [452/512] ttft= 71348.1 ms  latency= 94753.7 ms  output=1024 tokens
+  [453/512] ttft= 66262.3 ms  latency= 89668.9 ms  output=1024 tokens
+  [454/512] ttft= 71349.4 ms  latency= 94755.8 ms  output=1024 tokens
+  [455/512] ttft= 66059.3 ms  latency= 77890.7 ms  output= 509 tokens
+  [456/512] ttft= 68720.8 ms  latency= 92276.3 ms  output=1024 tokens
+  [457/512] ttft= 68792.6 ms  latency= 92268.3 ms  output=1024 tokens
+  [458/512] ttft= 67165.9 ms  latency= 89866.2 ms  output= 990 tokens
+  [459/512] ttft= 67225.8 ms  latency= 90640.3 ms  output=1024 tokens
+  [460/512] ttft= 67767.0 ms  latency= 77385.5 ms  output= 426 tokens
+  [461/512] ttft= 67206.2 ms  latency= 90542.9 ms  output=1024 tokens
+  [462/512] ttft= 67832.7 ms  latency= 91137.5 ms  output=1024 tokens
+  [463/512] ttft= 66942.7 ms  latency= 84577.4 ms  output= 788 tokens
+  [464/512] ttft= 68466.5 ms  latency= 91703.1 ms  output=1024 tokens
+  [465/512] ttft= 68568.6 ms  latency= 91714.8 ms  output=1024 tokens
+  [466/512] ttft= 68765.6 ms  latency= 91845.3 ms  output=1023 tokens
+  [467/512] ttft= 69858.2 ms  latency= 80190.7 ms  output= 483 tokens
+  [468/512] ttft= 68552.1 ms  latency= 91512.9 ms  output=1024 tokens
+  [469/512] ttft= 68276.7 ms  latency= 91160.0 ms  output=1024 tokens
+  [470/512] ttft= 68363.7 ms  latency= 91178.2 ms  output=1024 tokens
+  [471/512] ttft= 67630.2 ms  latency= 90390.3 ms  output=1023 tokens
+  [472/512] ttft= 68028.2 ms  latency= 90690.1 ms  output=1021 tokens
+  [473/512] ttft= 68130.2 ms  latency= 90706.0 ms  output=1024 tokens
+  [474/512] ttft= 68145.9 ms  latency= 90638.2 ms  output=1025 tokens
+  [475/512] ttft= 67498.4 ms  latency= 89920.3 ms  output=1024 tokens
+  [476/512] ttft= 67504.1 ms  latency= 89899.4 ms  output=1024 tokens
+  [477/512] ttft= 67685.1 ms  latency= 89911.5 ms  output=1024 tokens
+  [478/512] ttft= 66310.6 ms  latency= 87149.0 ms  output= 964 tokens
+  [479/512] ttft= 67885.0 ms  latency= 89940.0 ms  output=1024 tokens
+  [480/512] ttft= 67666.0 ms  latency= 89720.1 ms  output=1024 tokens
+  [481/512] ttft= 66812.5 ms  latency= 88708.9 ms  output=1024 tokens
+  [482/512] ttft= 65775.0 ms  latency= 87380.1 ms  output=1025 tokens
+  [483/512] ttft= 66214.1 ms  latency= 87617.6 ms  output=1024 tokens
+  [484/512] ttft= 65852.5 ms  latency= 87196.3 ms  output=1024 tokens
+  [485/512] ttft= 66273.9 ms  latency= 87442.3 ms  output=1024 tokens
+  [486/512] ttft= 66374.5 ms  latency= 87456.3 ms  output=1024 tokens
+  [487/512] ttft= 66411.8 ms  latency= 87350.1 ms  output=1024 tokens
+  [488/512] ttft= 66206.7 ms  latency= 86971.6 ms  output=1024 tokens
+  [489/512] ttft= 66409.0 ms  latency= 87045.1 ms  output=1024 tokens
+  [490/512] ttft= 66435.2 ms  latency= 87008.3 ms  output=1024 tokens
+  [491/512] ttft= 68475.5 ms  latency= 87598.8 ms  output= 980 tokens
+  [492/512] ttft= 67827.5 ms  latency= 87831.7 ms  output=1024 tokens
+  [493/512] ttft= 68352.7 ms  latency= 88153.9 ms  output=1024 tokens
+  [494/512] ttft= 68606.7 ms  latency= 88268.2 ms  output=1023 tokens
+  [495/512] ttft= 68966.5 ms  latency= 88480.2 ms  output=1024 tokens
+  [496/512] ttft= 69051.2 ms  latency= 88519.0 ms  output=1024 tokens
+  [497/512] ttft= 69244.7 ms  latency= 88592.6 ms  output=1024 tokens
+  [498/512] ttft= 69378.1 ms  latency= 88640.9 ms  output=1024 tokens
+  [499/512] ttft= 69577.4 ms  latency= 88751.2 ms  output=1024 tokens
+  [500/512] ttft= 70056.7 ms  latency= 89021.8 ms  output=1024 tokens
+  [501/512] ttft= 70251.1 ms  latency= 89105.0 ms  output=1023 tokens
+  [502/512] ttft= 70755.5 ms  latency= 89372.9 ms  output=1023 tokens
+  [503/512] ttft= 70826.3 ms  latency= 89348.2 ms  output=1024 tokens
+  [504/512] ttft= 70898.3 ms  latency= 89421.6 ms  output=1023 tokens
+  [505/512] ttft= 71310.2 ms  latency= 89540.9 ms  output=1024 tokens
+  [506/512] ttft= 71394.1 ms  latency= 89548.7 ms  output=1024 tokens
+  [507/512] ttft= 71490.6 ms  latency= 89555.7 ms  output=1024 tokens
+  [508/512] ttft= 71493.8 ms  latency= 89558.6 ms  output=1024 tokens
+  [509/512] ttft= 71412.2 ms  latency= 89478.1 ms  output=1024 tokens
+  [510/512] ttft= 71490.8 ms  latency= 89556.8 ms  output=1024 tokens
+  [511/512] ttft= 71515.0 ms  latency= 89483.0 ms  output=1024 tokens
+  [512/512] ttft= 71512.8 ms  latency= 89480.9 ms  output=1023 tokens
+
+====================================================================
+ Online Benchmark 结果汇总（vllm_serve）
+====================================================================
+  total_prompts           : 512
+  total_output_tokens     : 497386
+  wall_time_sec           : 181.7
+  overall_throughput_tps  : 2737.38
+  avg_latency_ms          : 71205.39
+  p50_latency_ms          : 84444.32
+  p95_latency_ms          : 94056.49
+  p99_latency_ms          : 94678.72
+  avg_ttft_ms             : 49572.66
+  p95_ttft_ms             : 70575.11
+  avg_gpu_mem_gb          : 74.5723
+  peak_gpu_mem_gb         : 74.5723
+  avg_gpu_mem_utilization_perc: 0.9363
+  peak_gpu_mem_utilization_perc: 0.9363
+  avg_kv_cache_usage_perc : 0.3299
+  max_kv_cache_usage_perc : 0.365
+  avg_num_requests_running: 61.0141
+  max_num_requests_running: 64.0
+  avg_num_requests_waiting: 0.2049
+  max_num_requests_waiting: 49.0
+====================================================================
+
+====================================================================
+ Length Bucket Benchmark 结果汇总
+====================================================================
+  [short] count=154
+    avg_prompt_chars : 36.38
+    avg_output_tokens: 852.62
+    avg_ttft_ms      : 48713.19
+    p95_ttft_ms      : 69733.42
+    avg_latency_ms   : 67725.89
+    p95_latency_ms   : 92452.42
+  [long] count=358
+    avg_prompt_chars : 1601.37
+    avg_output_tokens: 1022.58
+    avg_ttft_ms      : 49942.38
+    p95_ttft_ms      : 71111.64
+    avg_latency_ms   : 72702.15
+    p95_latency_ms   : 94122.52
+====================================================================
+
+[INFO] 结果已保存至: /inspire/hdd/project/mianxiangdayuyanmoxing/261130003/results/vllm_serve_122b_length_aware_v6/122b_length_aware_v6_fifo_c256/benchmark_online.json
