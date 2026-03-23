@@ -4,7 +4,7 @@
 MODEL_PATH="${MODEL_PATH:-/inspire/hdd/project/mianxiangdayuyanmoxing/public/Qwen2.5-14B-Instruct}"
 CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 MODEL_TAG="${MODEL_TAG:-14b_length_aware_v6_offline_accuracy_bs8}"
-EVAL_FILE="${EVAL_FILE:-baseline/ceval_subset.jsonl}"
+EVAL_FILE="${EVAL_FILE:-}"
 EVAL_LIMIT="${EVAL_LIMIT:-0}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-16}"
 TEMPERATURE="${TEMPERATURE:-0.0}"
@@ -15,7 +15,7 @@ LOAD_FORMAT="${LOAD_FORMAT:-auto}"
 QUANTIZATION="${QUANTIZATION:-}"
 GPU_MEMORY_UTILIZATION="${GPU_MEMORY_UTILIZATION:-0.90}"
 MAX_MODEL_LEN="${MAX_MODEL_LEN:-8192}"
-MAX_NUM_SEQS="${MAX_NUM_SEQS:-12}"
+MAX_NUM_SEQS="${MAX_NUM_SEQS:-}"
 MAX_NUM_BATCHED_TOKENS="${MAX_NUM_BATCHED_TOKENS:-8192}"
 ENABLE_PREFIX_CACHING="${ENABLE_PREFIX_CACHING:-1}"
 ENFORCE_EAGER="${ENFORCE_EAGER:-0}"
@@ -38,15 +38,20 @@ RESULT_ROOT="${RESULT_ROOT:-}"
 # ===== End User Config =====
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-cd "$ROOT_DIR"
+PACKAGE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WORK_DIR="$(dirname "$PACKAGE_DIR")"
+cd "$WORK_DIR"
 
 if [[ -z "$RESULT_ROOT" ]]; then
-  RESULT_ROOT="$ROOT_DIR/results"
+  RESULT_ROOT="$PACKAGE_DIR/results"
+fi
+
+if [[ -z "$EVAL_FILE" ]]; then
+  EVAL_FILE="$PACKAGE_DIR/data/ceval_subset.jsonl"
 fi
 
 export CUDA_VISIBLE_DEVICES
-RESULT_DIR="${RESULT_DIR:-$RESULT_ROOT/vllm_14b_length_aware_v6_offline/$MODEL_TAG}"
+RESULT_DIR="${RESULT_DIR:-$RESULT_ROOT/$MODEL_TAG}"
 mkdir -p "$RESULT_DIR/logs"
 
 LIMIT_ARGS=()
@@ -69,6 +74,10 @@ EAGER_ARGS=()
 if [[ "$ENFORCE_EAGER" == "1" ]]; then
   EAGER_ARGS+=(--enforce_eager)
 fi
+SEQ_ARGS=()
+if [[ -n "$MAX_NUM_SEQS" ]]; then
+  SEQ_ARGS+=(--max_num_seqs "$MAX_NUM_SEQS")
+fi
 SORT_ARGS=()
 if [[ "$SORT_WITHIN_BATCH" != "1" ]]; then
   SORT_ARGS+=(--disable_sort_within_batch)
@@ -86,7 +95,6 @@ python -m vllm_14b_length_aware_v6_offline.evaluate_accuracy \
   --load_format "$LOAD_FORMAT" \
   --gpu_memory_utilization "$GPU_MEMORY_UTILIZATION" \
   --max_model_len "$MAX_MODEL_LEN" \
-  --max_num_seqs "$MAX_NUM_SEQS" \
   --max_num_batched_tokens "$MAX_NUM_BATCHED_TOKENS" \
   --monitor_sample_interval_sec "$SAMPLE_INTERVAL_SEC" \
   --planner_policy "$PLANNER_POLICY" \
@@ -106,5 +114,6 @@ python -m vllm_14b_length_aware_v6_offline.evaluate_accuracy \
   "${PREFIX_ARGS[@]}" \
   "${QUANT_ARGS[@]}" \
   "${EAGER_ARGS[@]}" \
+  "${SEQ_ARGS[@]}" \
   "${SORT_ARGS[@]}" \
   | tee "$RESULT_DIR/logs/accuracy.log"

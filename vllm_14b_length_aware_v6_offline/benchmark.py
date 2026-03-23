@@ -3,19 +3,19 @@ from __future__ import annotations
 import argparse
 import time
 
-import numpy as np
-
 from .common import (
     DEFAULT_MAX_NEW_TOKENS,
     DEFAULT_PROMPT_FILE,
     compute_benchmark_stats,
     load_jsonl,
+    mean,
+    percentile,
     print_benchmark_stats,
     save_json,
 )
 from .engine import EngineConfig, VLLM14BLengthAwareV6OfflineEngine
 from .planner import OfflineLengthAwarePlanner, PlannerConfig
-from vllm_14b.monitor import OfflineGpuMonitor
+from .monitor import OfflineGpuMonitor
 
 
 def parse_args():
@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument("--gpu_memory_utilization", type=float, default=0.9)
     parser.add_argument("--enable_prefix_caching", action="store_true")
     parser.add_argument("--max_model_len", type=int, default=8192)
-    parser.add_argument("--max_num_seqs", type=int, default=12)
+    parser.add_argument("--max_num_seqs", type=int, default=None)
     parser.add_argument("--max_num_batched_tokens", type=int, default=8192)
     parser.add_argument("--load_format", type=str, default="auto")
     parser.add_argument("--quantization", type=str, default="")
@@ -62,10 +62,10 @@ def add_bucket_stats(stats: dict, results: list[dict]) -> None:
             continue
         latencies = [item["total_latency_ms"] for item in bucket_results]
         ttfts = [item["ttft_ms"] for item in bucket_results]
-        stats[f"{bucket}_avg_latency_ms"] = round(float(np.mean(latencies)), 2)
-        stats[f"{bucket}_p95_latency_ms"] = round(float(np.percentile(latencies, 95)), 2)
-        stats[f"{bucket}_avg_ttft_ms"] = round(float(np.mean(ttfts)), 2)
-        stats[f"{bucket}_p95_ttft_ms"] = round(float(np.percentile(ttfts, 95)), 2)
+        stats[f"{bucket}_avg_latency_ms"] = round(mean(latencies), 2)
+        stats[f"{bucket}_p95_latency_ms"] = round(percentile(latencies, 95), 2)
+        stats[f"{bucket}_avg_ttft_ms"] = round(mean(ttfts), 2)
+        stats[f"{bucket}_p95_ttft_ms"] = round(percentile(ttfts, 95), 2)
 
 
 def main():

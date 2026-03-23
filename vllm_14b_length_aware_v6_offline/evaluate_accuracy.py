@@ -13,7 +13,7 @@ from .common import (
 )
 from .engine import EngineConfig, VLLM14BLengthAwareV6OfflineEngine
 from .planner import OfflineLengthAwarePlanner, PlannerConfig
-from vllm_14b.monitor import OfflineGpuMonitor
+from .monitor import OfflineGpuMonitor
 
 
 def parse_args():
@@ -31,7 +31,7 @@ def parse_args():
     parser.add_argument("--gpu_memory_utilization", type=float, default=0.9)
     parser.add_argument("--enable_prefix_caching", action="store_true")
     parser.add_argument("--max_model_len", type=int, default=8192)
-    parser.add_argument("--max_num_seqs", type=int, default=12)
+    parser.add_argument("--max_num_seqs", type=int, default=None)
     parser.add_argument("--max_num_batched_tokens", type=int, default=8192)
     parser.add_argument("--load_format", type=str, default="auto")
     parser.add_argument("--quantization", type=str, default="")

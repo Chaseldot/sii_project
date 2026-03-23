@@ -16,7 +16,7 @@ SAMPLE_INTERVAL_SEC="${SAMPLE_INTERVAL_SEC:-0.5}"
 RESULT_ROOT="${RESULT_ROOT:-$PWD/results}"
 RESULT_NAMESPACE="${RESULT_NAMESPACE:-vllm_serve_14b_official_tuned}"
 EXP_NAME="${EXP_NAME:-${RUN_TAG}_c${CONCURRENCY}}"
-# 服务端参数例如 MAX_NUM_SEQS / MAX_NUM_BATCHED_TOKENS / MAX_NUM_PARTIAL_PREFILLS 请改 start_server.sh
+# 服务端参数例如 MAX_NUM_SEQS / MAX_NUM_BATCHED_TOKENS / ENABLE_CHUNKED_PREFILL 请改 start_server.sh
 # ===== End User Config =====
 set -euo pipefail
 
