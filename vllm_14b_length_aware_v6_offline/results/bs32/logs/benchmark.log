@@ -955,3 +955,134 @@ INFO 03-23 00:47:33 [llm.py:391] Supported tasks: ['generate']
   [ 892/1000]  bucket=long   est_in= 962  latency= 15637.2 ms  ttft= 15637.2 ms  throughput=   65.5 token/s output=1024 tokens
   [ 893/1000]  bucket=long   est_in= 993  latency= 15637.2 ms  ttft= 15637.2 ms  throughput=   65.5 token/s output=1024 tokens
   [ 894/1000]  bucket=long   est_in= 997  latency= 15637.2 ms  ttft= 15637.2 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 895/1000]  bucket=long   est_in=1003  latency= 15637.2 ms  ttft= 15637.2 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 896/1000]  bucket=long   est_in=1016  latency= 15637.2 ms  ttft= 15637.2 ms  throughput=   65.5 token/s output=1024 tokens
+[batch   29/32] size=32 est_tokens= 792-1011 short= 0 long=32
+  [ 897/1000]  bucket=long   est_in= 792  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 898/1000]  bucket=long   est_in= 794  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 899/1000]  bucket=long   est_in= 796  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 900/1000]  bucket=long   est_in= 800  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 901/1000]  bucket=long   est_in= 803  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 902/1000]  bucket=long   est_in= 805  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 903/1000]  bucket=long   est_in= 814  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 904/1000]  bucket=long   est_in= 823  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 905/1000]  bucket=long   est_in= 824  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 906/1000]  bucket=long   est_in= 826  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 907/1000]  bucket=long   est_in= 844  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 908/1000]  bucket=long   est_in= 858  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 909/1000]  bucket=long   est_in= 861  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 910/1000]  bucket=long   est_in= 885  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 911/1000]  bucket=long   est_in= 895  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 912/1000]  bucket=long   est_in= 901  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 913/1000]  bucket=long   est_in= 911  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 914/1000]  bucket=long   est_in= 914  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 915/1000]  bucket=long   est_in= 923  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 916/1000]  bucket=long   est_in= 924  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 917/1000]  bucket=long   est_in= 924  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 918/1000]  bucket=long   est_in= 925  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 919/1000]  bucket=long   est_in= 927  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 920/1000]  bucket=long   est_in= 930  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 921/1000]  bucket=long   est_in= 931  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 922/1000]  bucket=long   est_in= 933  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 923/1000]  bucket=long   est_in= 934  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 924/1000]  bucket=long   est_in= 938  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 925/1000]  bucket=long   est_in= 946  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 926/1000]  bucket=long   est_in= 968  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 927/1000]  bucket=long   est_in= 974  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+  [ 928/1000]  bucket=long   est_in=1011  latency= 15669.7 ms  ttft= 15669.7 ms  throughput=   65.3 token/s output=1024 tokens
+[batch   30/32] size=32 est_tokens= 774-1007 short= 0 long=32
+  [ 929/1000]  bucket=long   est_in= 774  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 930/1000]  bucket=long   est_in= 777  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 931/1000]  bucket=long   est_in= 791  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 932/1000]  bucket=long   est_in= 792  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 933/1000]  bucket=long   est_in= 803  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 934/1000]  bucket=long   est_in= 805  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 935/1000]  bucket=long   est_in= 805  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 936/1000]  bucket=long   est_in= 811  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 937/1000]  bucket=long   est_in= 847  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 938/1000]  bucket=long   est_in= 853  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 939/1000]  bucket=long   est_in= 866  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 940/1000]  bucket=long   est_in= 867  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 941/1000]  bucket=long   est_in= 867  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 942/1000]  bucket=long   est_in= 871  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 943/1000]  bucket=long   est_in= 878  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 944/1000]  bucket=long   est_in= 882  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 945/1000]  bucket=long   est_in= 883  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 946/1000]  bucket=long   est_in= 890  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 947/1000]  bucket=long   est_in= 907  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 948/1000]  bucket=long   est_in= 907  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 949/1000]  bucket=long   est_in= 912  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 950/1000]  bucket=long   est_in= 918  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 951/1000]  bucket=long   est_in= 935  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 952/1000]  bucket=long   est_in= 945  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 953/1000]  bucket=long   est_in= 946  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 954/1000]  bucket=long   est_in= 961  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 955/1000]  bucket=long   est_in= 971  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 956/1000]  bucket=long   est_in= 987  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 957/1000]  bucket=long   est_in= 989  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 958/1000]  bucket=long   est_in= 990  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens(EngineCore pid=367606) INFO 03-23 00:55:52 [core.py:1201] Shutdown initiated (timeout=0)
+(EngineCore pid=367606) INFO 03-23 00:55:52 [core.py:1224] Shutdown complete
+
+  [ 959/1000]  bucket=long   est_in= 997  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+  [ 960/1000]  bucket=long   est_in=1007  latency= 15663.7 ms  ttft= 15663.7 ms  throughput=   65.4 token/s output=1024 tokens
+[batch   31/32] size=32 est_tokens= 763- 973 short= 0 long=32
+  [ 961/1000]  bucket=long   est_in= 763  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 962/1000]  bucket=long   est_in= 795  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 963/1000]  bucket=long   est_in= 806  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 964/1000]  bucket=long   est_in= 818  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 965/1000]  bucket=long   est_in= 821  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 966/1000]  bucket=long   est_in= 822  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 967/1000]  bucket=long   est_in= 827  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 968/1000]  bucket=long   est_in= 828  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 969/1000]  bucket=long   est_in= 847  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 970/1000]  bucket=long   est_in= 850  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 971/1000]  bucket=long   est_in= 853  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 972/1000]  bucket=long   est_in= 855  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 973/1000]  bucket=long   est_in= 870  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 974/1000]  bucket=long   est_in= 871  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 975/1000]  bucket=long   est_in= 882  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 976/1000]  bucket=long   est_in= 892  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 977/1000]  bucket=long   est_in= 892  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 978/1000]  bucket=long   est_in= 893  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 979/1000]  bucket=long   est_in= 903  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 980/1000]  bucket=long   est_in= 904  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 981/1000]  bucket=long   est_in= 907  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 982/1000]  bucket=long   est_in= 908  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 983/1000]  bucket=long   est_in= 912  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 984/1000]  bucket=long   est_in= 924  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 985/1000]  bucket=long   est_in= 930  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 986/1000]  bucket=long   est_in= 931  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 987/1000]  bucket=long   est_in= 938  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 988/1000]  bucket=long   est_in= 939  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 989/1000]  bucket=long   est_in= 940  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 990/1000]  bucket=long   est_in= 954  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 991/1000]  bucket=long   est_in= 954  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+  [ 992/1000]  bucket=long   est_in= 973  latency= 15643.6 ms  ttft= 15643.6 ms  throughput=   65.5 token/s output=1024 tokens
+[batch   32/32] size= 8 est_tokens= 763- 979 short= 0 long= 8
+  [ 993/1000]  bucket=long   est_in= 763  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [ 994/1000]  bucket=long   est_in= 789  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [ 995/1000]  bucket=long   est_in= 791  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [ 996/1000]  bucket=long   est_in= 840  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [ 997/1000]  bucket=long   est_in= 849  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [ 998/1000]  bucket=long   est_in= 902  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [ 999/1000]  bucket=long   est_in= 938  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+  [1000/1000]  bucket=long   est_in= 979  latency= 12339.6 ms  ttft= 12339.6 ms  throughput=   83.0 token/s output=1024 tokens
+
+====================================================================
+ Benchmark 结果汇总（vllm_14b_length_aware_v6_offline）
+====================================================================
+  测试 prompt 数                             : 1000
+  总输出 tokens                              : 1023769
+  总耗时 (sec)                               : 498.17
+  max_new_tokens 配置                       : 1024
+  整体吞吐率 (tokens/sec)                      : 2055.05
+  平均延迟 (ms)                               : 15633.19
+  P50 延迟 (ms)                             : 15660.79
+  P95 延迟 (ms)                             : 15716.86
+  P99 延迟 (ms)                             : 15750.26
+  平均 TTFT (ms)                            : 15633.19
+  P95 TTFT (ms)                           : 15716.86
+  峰值显存 (GB)                               : 73.71
+====================================================================
+
+[INFO] 结果已保存至: /inspire/hdd/project/mianxiangdayuyanmoxing/261130003/vllm_14b_length_aware_v6_offline/results/bs32/results_length_aware_v6_offline.json
