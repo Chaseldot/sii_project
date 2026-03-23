@@ -9,6 +9,7 @@
 | Timestamp | Topic | Summary | Record |
 | --- | --- | --- | --- |
 | `2026-03-23 04:15:00 +0800` | 14B Length-Aware V6 初始化 | 在 V5 基础上独立分叉；去掉绝对 long guard，改成 arrival ratio 与 queue ratio 偏差驱动的连续修正。 | `records/2026-03-23_041500_length_aware_v6_init.md` |
+| `2026-03-23 04:35:00 +0800` | 14B Length-Aware V6 Milestone | `v6` 作为当前 milestone；相对 baseline 保留 short QoS 显著收益，同时较 `v4` 更均衡，较 `v5` 明显纠偏。 | `records/2026-03-23_043500_length_aware_v6_milestone.md` |
 
 说明：
 
