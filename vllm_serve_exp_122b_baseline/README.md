@@ -1,0 +1,31 @@
+# vLLM Serve 122B Baseline
+
+`vllm_serve_exp_122b_baseline` 是独立的 122B 在线基线目录，用来先确定：
+
+- 在新数据上何时开始出现明显瓶颈
+- baseline 的 `CONCURRENCY / MAX_NUM_SEQS / MAX_NUM_BATCHED_TOKENS` 取值
+
+它复用现有 `vllm_serve_exp` 的 Python 实现，但单独维护：
+
+- 服务启动脚本
+- benchmark / accuracy 脚本
+- 结果目录和命名
+
+默认配置：
+
+- 模型：`Qwen3.5-122B`
+- benchmark 数据：`vllm_serve_exp_122b_baseline/data/mixed_prompts_30s70l.jsonl`
+- `MAX_NEW_TOKENS=1024`
+- `MAX_NUM_SEQS=64`
+- `MAX_NUM_BATCHED_TOKENS=8192`
+- `CUDA_VISIBLE_DEVICES=0,1,2,3`
+- `TENSOR_PARALLEL_SIZE=4`
+- `CONCURRENCY_LIST=128 256 512`
+
+核心脚本：
+
+- `bash vllm_serve_exp_122b_baseline/bash/start_server.sh`
+- `bash vllm_serve_exp_122b_baseline/bash/run_benchmark.sh`
+- `bash vllm_serve_exp_122b_baseline/bash/run_accuracy.sh`
+- `bash vllm_serve_exp_122b_baseline/bash/run_all.sh`
+- `bash vllm_serve_exp_122b_baseline/bash/build_mixed_prompts.sh`

@@ -9,6 +9,7 @@
 | Timestamp | Topic | Summary | Record |
 | --- | --- | --- | --- |
 | `2026-03-23 05:15:00 +0800` | 14B Length-Aware V7 初始化 | 在 V6 基础上独立分叉；从 ratio correction 进一步切到 normalized backlog pressure 驱动。 | `records/2026-03-23_051500_length_aware_v7_init.md` |
+| `2026-03-23 05:35:00 +0800` | 14B Length-Aware V7 分析 | 相对 baseline 仍保留 short 改善，但 short 收益较 `v6` 回落；long 和 overall tail 较 `v6` 有所回收，`v7` 更对称但未超过 `v6`。 | `records/2026-03-23_053500_length_aware_v7_analysis.md` |
 
 说明：
 
