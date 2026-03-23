@@ -21,6 +21,7 @@ def render_result(result: dict, peak_gpu_mem_gb: float) -> str:
             f"  输出 tokens   : {result['output_tokens']}",
             f"  总延迟         : {result['total_latency_ms']} ms",
             f"  TTFT (近似)   : {result['ttft_ms']} ms",
+            f"  TTFT 来源      : {result.get('ttft_source', 'unknown')}",
             f"  吞吐率         : {result['throughput_tps']} tokens/sec",
             f"  峰值显存       : {peak_gpu_mem_gb:.3f} GB",
             "=" * 64,

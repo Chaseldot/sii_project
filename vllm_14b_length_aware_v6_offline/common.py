@@ -85,6 +85,10 @@ def compute_benchmark_stats(
     latencies = [item["total_latency_ms"] for item in results]
     ttfts = [item["ttft_ms"] for item in results]
     total_output_tokens = sum(item["output_tokens"] for item in results)
+    exact_ttft = sum(1 for item in results if item.get("ttft_source") == "vllm_metrics")
+    fallback_ttft = sum(1 for item in results if item.get("ttft_source") != "vllm_metrics")
+    exact_latency = sum(1 for item in results if item.get("total_latency_source") == "vllm_metrics")
+    fallback_latency = sum(1 for item in results if item.get("total_latency_source") != "vllm_metrics")
 
     return {
         "total_prompts": len(results),
@@ -99,6 +103,10 @@ def compute_benchmark_stats(
         "avg_ttft_ms": round(mean(ttfts), 2),
         "p95_ttft_ms": round(percentile(ttfts, 95), 2),
         "peak_gpu_mem_gb": round(peak_gpu_mem_gb, 3),
+        "ttft_exact_requests": exact_ttft,
+        "ttft_fallback_requests": fallback_ttft,
+        "total_latency_exact_requests": exact_latency,
+        "total_latency_fallback_requests": fallback_latency,
     }
 
 
